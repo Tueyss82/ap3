@@ -45,4 +45,16 @@ $routes->get('modifier-message(:num)', 'Message::modif/$1', ['as' => 'modifMessa
 $routes->post('modifier-message', 'Message::update', ['as' => 'updateMessage']);
 
 $routes->post('suppr-message', 'Message::delete', ['as' => 'supprMessage']);
+//-----------------------------------------------
+
+$routes->get('gestion-utilisateur', 'Home::utilisateur');
+
+//----------------------------------------------- Utilisateur
+$routes->get('ajout-utilisateur', 'Utilisateur::ajout', ['as' => 'ajoutUtilisateur']);
+$routes->post('ajout-utilisateur', 'Utilisateur::create', ['as' => 'createUtilisateur']);
+
+$routes->get('modifier-utilisateur(:num)', 'Utilisateur::modif/$1', ['as' => 'modifUtilisateur']);
+$routes->post('modifier-utilisateur', 'Utilisateur::update', ['as' => 'updateUtilisateur']);
+
+$routes->post('suppr-utilisateur', 'Utilisateur::delete', ['as' => 'supprUtilisateur']);
 
