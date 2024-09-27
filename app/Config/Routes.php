@@ -20,7 +20,7 @@ $routes->post('ajout-commune', 'Commune::create', ['as' => 'createCommune']);
 $routes->get('modifier-commune(:num)', 'Commune::modif/$1', ['as' => 'modifCommune']);
 $routes->post('modifier-commune', 'Commune::update', ['as' => 'updateCommune']);
 
-$routes->get('suppr-commune(:num)', 'Commune::delete/$1', ['as' => 'supprCommune']);
+$routes->post('suppr-commune', 'Commune::delete', ['as' => 'supprCommune']);
 //-----------------------------------------------
 
 $routes->get('gestion-panneaux', 'Home::panneaux');
@@ -32,7 +32,7 @@ $routes->post('ajout-panneaux', 'Panneau::create', ['as' => 'createPanneau']);
 $routes->get('modifier-panneaux(:num)', 'Panneau::modif/$1', ['as' => 'modifPanneau']);
 $routes->post('modifier-panneaux', 'Panneau::update', ['as' => 'updatePanneau']);
 
-$routes->get('suppr-panneaux(:num)', 'Panneau::delete/$1', ['as' => 'supprPanneau']);
+$routes->post('suppr-panneaux', 'Panneau::delete', ['as' => 'supprPanneau']);
 //-----------------------------------------------
 
 $routes->get('gestion-message', 'Home::message');
@@ -44,5 +44,17 @@ $routes->post('ajout-message', 'Message::create', ['as' => 'createMessage']);
 $routes->get('modifier-message(:num)', 'Message::modif/$1', ['as' => 'modifMessage']);
 $routes->post('modifier-message', 'Message::update', ['as' => 'updateMessage']);
 
-$routes->get('suppr-message(:num)', 'Message::delete/$1', ['as' => 'supprMessage']);
+$routes->post('suppr-message', 'Message::delete', ['as' => 'supprMessage']);
+//-----------------------------------------------
+
+$routes->get('gestion-utilisateur', 'Home::utilisateur');
+
+//----------------------------------------------- Utilisateur
+$routes->get('ajout-utilisateur', 'Utilisateur::ajout', ['as' => 'ajoutUtilisateur']);
+$routes->post('ajout-utilisateur', 'Utilisateur::create', ['as' => 'createUtilisateur']);
+
+$routes->get('modifier-utilisateur(:num)', 'Utilisateur::modif/$1', ['as' => 'modifUtilisateur']);
+$routes->post('modifier-utilisateur', 'Utilisateur::update', ['as' => 'updateUtilisateur']);
+
+$routes->post('suppr-utilisateur', 'Utilisateur::delete', ['as' => 'supprUtilisateur']);
 
