@@ -5,7 +5,8 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('', 'Home::index');
+$routes->get('/', 'Home::index', ['as' => 'index']);
+$routes->post('/', 'Home::index', ['as' => 'index']);
 
 $routes->get('contact', 'Home::contact');
 
