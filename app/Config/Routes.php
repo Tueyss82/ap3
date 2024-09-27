@@ -8,11 +8,11 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index', ['as' => 'index']);
 $routes->post('/', 'Home::index', ['as' => 'index']);
 
-$routes->get('contact', 'Home::contact');
+$routes->get('contact', 'Home::contact', ['as' => 'contact']);
 
-$routes->get('page-connexion', 'Home::connexion');
+$routes->get('page-connexion', 'Home::connexion', ['as' => 'connexion']);
 
-$routes->get('gestion-clients', 'Home::clients');
+$routes->get('gestion-clients', 'Home::clients', ['as' => 'clients']);
 
 //----------------------------------------------- Commune
 $routes->get('ajout-commune', 'Commune::ajout', ['as' => 'ajoutCommune']);
@@ -24,7 +24,7 @@ $routes->post('modifier-commune', 'Commune::update', ['as' => 'updateCommune']);
 $routes->post('suppr-commune', 'Commune::delete', ['as' => 'supprCommune']);
 //-----------------------------------------------
 
-$routes->get('gestion-panneaux', 'Home::panneaux');
+$routes->get('gestion-panneaux', 'Home::panneaux', ['as' => 'panneaux']);
 
 //----------------------------------------------- Panneau
 $routes->get('ajout-panneaux', 'Panneau::ajout', ['as' => 'ajoutPanneau']);
@@ -36,7 +36,7 @@ $routes->post('modifier-panneaux', 'Panneau::update', ['as' => 'updatePanneau'])
 $routes->post('suppr-panneaux', 'Panneau::delete', ['as' => 'supprPanneau']);
 //-----------------------------------------------
 
-$routes->get('gestion-message', 'Home::message');
+$routes->get('gestion-message', 'Home::message', ['as' => 'message']);
 
 //----------------------------------------------- Message
 $routes->get('ajout-message', 'Message::ajout', ['as' => 'ajoutMessage']);
@@ -48,7 +48,7 @@ $routes->post('modifier-message', 'Message::update', ['as' => 'updateMessage']);
 $routes->post('suppr-message', 'Message::delete', ['as' => 'supprMessage']);
 //-----------------------------------------------
 
-$routes->get('gestion-utilisateur', 'Home::utilisateur');
+$routes->get('gestion-utilisateur', 'Home::utilisateur', ['as' => 'utilisateur']);
 
 //----------------------------------------------- Utilisateur
 $routes->get('ajout-utilisateur', 'Utilisateur::ajout', ['as' => 'ajoutUtilisateur']);
