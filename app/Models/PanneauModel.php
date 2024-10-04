@@ -43,4 +43,11 @@ class PanneauModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function findJoinAll() {
+        return $this
+        ->select('panneau.ID, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, commune.ID as commune_id')
+        ->join('commune', 'commune_id = panneau.ID')
+        ->findAll();
+    }
 }

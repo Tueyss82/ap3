@@ -29,11 +29,13 @@ class Home extends BaseController
 
     public function utilisateur(): string
     {
-        $user = $this->userModel->findJoinAll();
-
-        return view('utilisateurs/gestion_utilisateur', [
-            'listeUtilisateur' => $user
-        ]);
+        return view('gestion_utilisateur');
         
     }
+    public function clients(): string
+    {
+        return view('communes/gestion_clients');
+        
+    }
+
 }
