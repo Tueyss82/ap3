@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Panneau extends Model
+class MessageModel extends Model
 {
-    protected $table            = 'panneaus';
+    protected $table            = 'messages';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
