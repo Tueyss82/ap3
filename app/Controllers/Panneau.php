@@ -24,7 +24,7 @@ class Message extends BaseController
         ]);
     }
 
-    public function ajout-panneaux(): string
+    public function ajout_panneaux(): string
     {
         $departements = $this->departementModel->findAll();
         return view('nouvel_etudiant',[
