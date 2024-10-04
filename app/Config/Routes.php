@@ -13,7 +13,7 @@ $routes->get('contact', 'Home::contact', ['as' => 'contact']);
 
 $routes->get('connexion', 'Home::connexion', ['as' => 'connexion']);
 
-$routes->get('communes/gestion_clients', 'Home::clients', ['as' => 'clients']);
+$routes->get('communes/gestion_clients', 'Commune::clients', ['as' => 'clients']);
 
 //----------------------------------------------- Commune
 $routes->get('communes/ajout_commune', 'Commune::ajout', ['as' => 'ajoutCommune']);
