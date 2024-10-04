@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class Commune extends Model
 {
-    protected $table            = 'communes';
+    protected $table            = 'commune';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['NOM','DEPARTEMENT'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
