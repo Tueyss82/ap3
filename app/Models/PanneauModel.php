@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class PanneauModel extends Model
 {
-    protected $table            = 'panneaus';
+    protected $table            = 'panneau';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

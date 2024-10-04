@@ -18,7 +18,7 @@ class Utilisateur extends BaseController
 
     public function ajout(): string
     {
-        $commune = $this->communeModel->findAll();
+        $commune = $this->userModel->findJoinAll();
         return view('ajout_utilisateur', [
             'listeCommune' => $commune
         ]);
