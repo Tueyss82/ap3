@@ -4,15 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Utilisateur extends Model
+class CommuneModel extends Model
 {
-    protected $table            = 'utilisateurs';
+    protected $table            = 'commune';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'nom',
+        'departement'
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +46,6 @@ class Utilisateur extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    
 }
