@@ -21,7 +21,7 @@ class Commune extends BaseController
         $communes = $this->communeModel->findJoinAll();
 
         return view('gestion-clients', [
-            'listeCommunes' => $communes
+            'listeCommune' => $communes
         ]);
     }
     //----------------------------------------------------------------------------------------------------------------------------------------//

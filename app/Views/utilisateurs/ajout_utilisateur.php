@@ -1,6 +1,5 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('contenu') ?>
-<?= var_dump($listeCommune) ?>
 
 
 <form method="post" action=<?= url_to('createUtilisateur') ?>>
@@ -8,8 +7,8 @@
     <select name="idcommune">
         <option value="">Choisissez une commune</option>
         <?php
-            foreach($listeCommune as $commune) {
-                echo "<option value=" . $commune['idcommune'] . ">".$commune['nom'] ." (". $commune['departement'].")</option>";
+            foreach($listeUtilisateur as $user) {
+                echo "<option value=" . $user['IDCOMMUNE'] . ">".$user['NOM'] ." (". $user['DEPARTEMENT'].")</option>";
         }
         ?>
     </select>

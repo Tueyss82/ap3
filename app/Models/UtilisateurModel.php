@@ -13,11 +13,11 @@ class UtilisateurModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'idcommune',
-        'identifiant',
-        'motdepasse',
-        'mail',
-        'role'
+        'IDCOMMUNE',
+        'IDENTIFIANT',
+        'MOTDEPASSE',
+        'MAIL',
+        'ROLE'
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -53,8 +53,8 @@ class UtilisateurModel extends Model
     public function findJoinAll()
     {
         return $this
-            ->select('commune.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
-            ->join('commune', 'commune.idcommune = utilisateur.idcommune')
+            ->select('commune.IDCOMMUNE as IDCOMMUNE, commune.NOM as NOMCOMMUNE, commune.DEPARTEMENT as DEPARTEMENT, utilisateur.IDUTILISATEUR')
+            ->join('commune', 'commune.IDCOMMUNE = utilisateur.IDCOMMUNE')
             ->findAll();
     }
 }
