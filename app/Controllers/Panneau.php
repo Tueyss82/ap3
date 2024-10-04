@@ -17,7 +17,7 @@ class Message extends BaseController
 
     public function index(): string
     {
-        $panneaux = $this->etudiantModel->findJoinAll();
+        $panneaux = $this->panneauxModel->findJoinAll();
 
         return view('gestion-panneaux', [
             'panneau' => $panneaux
@@ -26,7 +26,7 @@ class Message extends BaseController
 
     public function ajout_panneaux(): string
     {
-        $departements = $this->departementModel->findAll();
+        $departements = $this->panneauxModel->findAll();
         return view('nouvel_etudiant',[
             'listeDepartement' => $departements
         ]);
@@ -35,14 +35,14 @@ class Message extends BaseController
     public function create()
     {
         $etudiant = $this->request->getPost();
-        $this->etudiantModel->save($etudiant);
+        $this->panneauxModel->save($etudiant);
         return redirect('index');
     }
 
     public function modif($etudiantId): string
     {
-        $departements = $this->departementModel->findAll();
-        $etudiantId = $this->etudiantModel->find($etudiantId);
+        $departements = $this->panneauxModel->findAll();
+        $etudiantId = $this->communeModel->find($etudiantId);
 
         return view('modifier_etudiant', [
             'etudiant' => $etudiantId,
@@ -52,16 +52,15 @@ class Message extends BaseController
     public function update()
     {
         $etudiant = $this->request->getPost();
-        $this->etudiantModel->save($etudiant);
+        $this->panneauxModel->save($etudiant);
 
         return redirect('index');
     }
 
     public function delete($etudiantId)
     {
-        $this->etudiantModel->delete($etudiantId);
+        $this->panneauxModel->delete($etudiantId);
         return redirect('index');
     }
 }
 
-}

@@ -2,23 +2,25 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
 use App\Models\UtilisateurModel;
+use App\Models\CommuneModel;
 
 class Utilisateur extends BaseController
 {
     private $userModel;
+    private $communeModel;
 
     public function __construct()
     {
         $this->userModel = new UtilisateurModel();
+        $this->communeModel = new CommuneModel();
     }
 
     public function ajout(): string
     {
-        $user = $this->userModel->findAll();
+        $commune = $this->communeModel->findAll();
         return view('ajout_utilisateur', [
-            'listeUtilisateur' => $user
+            'listeCommune' => $commune
         ]);
     }
 
@@ -26,7 +28,7 @@ class Utilisateur extends BaseController
     {
         $userData = $this->request->getPost();
         $this->userModel->save($userData);
-        return redirect('index');
+        return redirect('gestion_utilisateur');
     }
 
     public function modif($userId): string
@@ -42,13 +44,13 @@ class Utilisateur extends BaseController
     {
         $userData = $this->request->getPost();
         $this->userModel->save($userData);
-        return redirect('index');   
+        return redirect('gestion_utilisateur');   
     }
 
     public function delete($userId)
     {
         $this->userModel->delete($userId);
-        return redirect('index');
+        return redirect('gestion_utilisateur');
     }
 
 }
