@@ -18,7 +18,7 @@ class Message extends BaseController
         $messages = $this->messageModel->findAll();
 
         return view('gestion_message', [
-            'messages' => $messages
+            'message' => $messages
         ]);
     }
 
