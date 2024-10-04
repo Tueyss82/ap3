@@ -216,6 +216,7 @@
             <li class="menu-item hidden"><a href="#">Home</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('connexion') ?>">Se Connecter</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('ajoutUtilisateur') ?>">qdqdqdqd</a></li>
+            <li class="menu-item hidden"><a href="<?= url_to('clients') ?>">teste</a></li>
             <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
             </li>
             <li class="menu-item hidden"><a href="https://forum.codeigniter.com/" target="_blank">Community</a></li>
