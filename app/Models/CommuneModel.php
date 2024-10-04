@@ -47,11 +47,5 @@ class CommuneModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function findJoinAll()
-    {
-        return $this
-            ->select('commune.idcommune, commune.nom, commune.departement')
-            ->join('utilisateur', 'commune.idcommune = utilisateur.idcommune')
-            ->findAll();
-    }
+    
 }

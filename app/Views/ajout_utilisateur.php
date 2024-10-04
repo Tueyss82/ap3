@@ -1,10 +1,12 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('contenu') ?>
+<?= var_dump($listeCommune) ?>
 
-<form method="post" action=<?= url_to('createEtudiant') ?>>
+
+<form method="post" action=<?= url_to('createUtilisateur') ?>>
 <label for="commune">Commune</label>
     <select name="idcommune">
-        <option value="">Choisissez une </option>
+        <option value="">Choisissez une commune</option>
         <?php
             foreach($listeCommune as $commune) {
                 echo "<option value=" . $commune['idcommune'] . ">".$commune['nom'] ." (". $commune['departement'].")</option>";

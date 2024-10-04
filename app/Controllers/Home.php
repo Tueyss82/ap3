@@ -13,4 +13,9 @@ class Home extends BaseController
     {
         return view('connexion');
     }
+
+    public function utilisateur(): string
+    {
+        return view('gestion_utilisateur');
+    }
 }

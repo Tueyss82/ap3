@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class MessageModel extends Model
 {
-    protected $table            = 'messages';
+    protected $table            = 'message';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
