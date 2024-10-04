@@ -20,45 +20,45 @@ class Commune extends BaseController
      {
          $communes = $this->communeModel->findJoinAll();
  
-         return view('gestion', [
-             'listeEtudiant' => $etudiants
+         return view('gestion-clients', [
+             'listeCommunes' => $communes
          ]);
      }
      //----------------------------------------------------------------------------------------------------------------------------------------//
      public function ajout(): string //get
      {
-         $departement = $this->departementModel->findAll();
-         return view('nouvel_etudiant',[
-             'listeDepartement'=>$departement
+         $communes = $this->communeModel->findAll();
+         return view('ajout_commune',[
+             'listeCommune'=>$communes
          ]);
      }
      public function create() //post
      {
-         $etudiant = $this->request->getPost();
-         $this->etudiantModel->insert($etudiant);
+         $commune = $this->request->getPost();
+         $this->communeModel->insert($commune);
  
          return redirect('index');
      }
      //----------------------------------------------------------------------------------------------------------------------------------------//
-     public function modif($etudiantId): string //get
+     public function modif($IDCOMMUNE): string //get
      {
-         $etudiants = $this->etudiantModel->find($etudiantId);
+         $communes= $this->communeModel->find($IDCOMMUNE);
  
-         return view('modifier_etudiant', [
-             'etudiant' => $etudiants
+         return view('modifier_commune', [
+             'commune' => $communes
          ]);
      }
      public function update() //post
      {
-         $etudiant = $this->request->getPost();
-         $this->etudiantModel->save($etudiant);
+         $commune = $this->request->getPost();
+         $this->communeModel->save($commune);
  
-         return redirect('index');
+         return redirect('clients');
      }
      //----------------------------------------------------------------------------------------------------------------------------------------//
-     public function delete($etudiantId) //get
+     public function delete($IDCOMMUNE) //get
      {
-         $this->etudiantModel->delete($etudiantId);
-         return redirect('index');
+         $this->communeModel->delete($IDCOMMUNE);
+         return redirect('clients');
      }
 }
