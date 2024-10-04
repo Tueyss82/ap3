@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Utilisateur extends Model
+class PanneauModel extends Model
 {
-    protected $table            = 'utilisateurs';
+    protected $table            = 'panneaus';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

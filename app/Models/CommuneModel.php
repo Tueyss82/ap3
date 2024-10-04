@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Commune extends Model
+class CommuneModel extends Model
 {
     protected $table            = 'communes';
     protected $primaryKey       = 'id';
