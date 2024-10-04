@@ -8,9 +8,10 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index', ['as' => 'index']);
 $routes->post('/', 'Home::index', ['as' => 'index']);
 
+
 $routes->get('contact', 'Home::contact', ['as' => 'contact']);
 
-$routes->get('page-connexion', 'Home::connexion', ['as' => 'connexion']);
+$routes->get('connexion', 'Home::connexion', ['as' => 'connexion']);
 
 $routes->get('gestion-clients', 'Home::clients', ['as' => 'clients']);
 
