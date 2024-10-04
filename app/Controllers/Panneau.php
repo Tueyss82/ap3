@@ -11,57 +11,55 @@ class Message extends BaseController
 
     public function __construct()
     {
-        $this->communeModel = model('');
-        $this->panneauxModel = model('');
+        $this->communeModel = model('Commune');
+        $this->panneauxModel = model('Panneau');
     }
 
     public function index(): string
     {
-        $panneaux = $this->etudiantModel->findJoinAll();
+        $panneaux = $this->panneauxModel->findJoinAll();
 
-        return view('gestion-panneaux', [
-            'panneau' => $panneaux
+        return view('panneaux', [
+            'listePanneaux' => $panneaux
         ]);
     }
 
-    public function ajout_panneaux(): string
+    public function ajout(): string
     {
-        $departements = $this->departementModel->findAll();
-        return view('nouvel_etudiant',[
-            'listeDepartement' => $departements
+        $panneau = $this->panneauxModel->findAll();
+        return view('ajoutPanneau',[
+            'panneauAjout' => $panneau
         ]);
     }
 
     public function create()
     {
-        $etudiant = $this->request->getPost();
-        $this->etudiantModel->save($etudiant);
-        return redirect('index');
+        $panneau = $this->request->getPost();
+        $this->panneauxModel->save($panneau);
+        return redirect('panneaux');
     }
 
-    public function modif($etudiantId): string
+    public function modif($panneauId): string
     {
-        $departements = $this->departementModel->findAll();
-        $etudiantId = $this->etudiantModel->find($etudiantId);
+        $panneau = $this->panneauxModel->find($panneauId);
 
-        return view('modifier_etudiant', [
-            'etudiant' => $etudiantId,
-            'listeDepartement' => $departements
+        return view('modifPanneau', [
+            'panneauModif' => $panneau
         ]);
     }
     public function update()
     {
-        $etudiant = $this->request->getPost();
-        $this->etudiantModel->save($etudiant);
+        $panneau = $this->request->getPost();
+        $this->panneauxModel->save($panneau);
 
-        return redirect('index');
+        return redirect('panneaux');
     }
 
-    public function delete($etudiantId)
+    public function delete($panneauId)
     {
-        $this->etudiantModel->delete($etudiantId);
-        return redirect('index');
+        $this->panneauxModel->delete($panneauId);
+        return redirect('panneaux');
     }
 }
 
-}
+
