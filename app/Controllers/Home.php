@@ -17,5 +17,12 @@ class Home extends BaseController
     public function utilisateur(): string
     {
         return view('gestion_utilisateur');
+        
     }
+    public function clients(): string
+    {
+        return view('communes/gestion_clients');
+        
+    }
+
 }
