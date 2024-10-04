@@ -16,6 +16,14 @@ class Utilisateur extends BaseController
         $this->communeModel = new CommuneModel();
     }
 
+    public function index(): string
+    {
+        $user = $this->userModel->findJoinAll();
+        return view('utilisateurs/gestion_utilisateur', [
+            'listeUtilisateur' => $user
+        ]);
+    }
+
     public function ajout(): string
     {
         $commune = $this->communeModel->findAll();
