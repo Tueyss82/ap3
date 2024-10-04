@@ -2,15 +2,65 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
+use App\Models\MessageModel;
 
 class Message extends BaseController
 {
-    public function index()
+    private $messageModel;
+
+    public function __construct()
     {
-        $model = new Message();
-        $data['messages'] = $model->findAll();
-        echo view('gestion-message', $data);
+        $this->messageModel = new MessageModel();
+    }
+
+    public function index(): string
+    {
+        $messages = $this->messageModel->findAll();
+
+        return view('gestion_message', [
+            'messages' => $messages
+        ]);
+    }
+
+    public function ajout(): string
+    {
+        return view('ajout_message');
+    }
+
+    public function create()
+    {
+        if ($this->request->getMethod() === 'post') {
+            $messageData = $this->request->getPost();
+            $this->messageModel->save($messageData);
+            return redirect()->to('message');
+        }
+
+        return view('ajout_message');
+    }
+
+    public function modif($id): string
+    {
+        $message = $this->messageModel->find($id);
+
+        return view('modifier_message', [
+            'message' => $message
+        ]);
+    }
+
+    public function update()
+    {
+        if ($this->request->getMethod() === 'post') {
+            $messageData = $this->request->getPost();
+            $this->messageModel->save($messageData);
+            return redirect()->to('message');
+        }
+
+        return view('modifier_message');
+    }
+
+    public function delete($id)
+    {
+        $this->messageModel->delete($id);
+        return redirect()->to('message');
     }
 }
- 
