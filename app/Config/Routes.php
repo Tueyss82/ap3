@@ -13,50 +13,50 @@ $routes->get('contact', 'Home::contact', ['as' => 'contact']);
 
 $routes->get('connexion', 'Home::connexion', ['as' => 'connexion']);
 
-$routes->get('gestion-clients', 'Home::clients', ['as' => 'clients']);
+$routes->get('gestion_clients', 'Home::clients', ['as' => 'clients']);
 
 //----------------------------------------------- Commune
-$routes->get('ajout-commune', 'Commune::ajout', ['as' => 'ajoutCommune']);
-$routes->post('ajout-commune', 'Commune::create', ['as' => 'createCommune']);
+$routes->get('ajout_commune', 'Commune::ajout', ['as' => 'ajoutCommune']);
+$routes->post('ajout_commune', 'Commune::create', ['as' => 'createCommune']);
 
-$routes->get('modifier-commune(:num)', 'Commune::modif/$1', ['as' => 'modifCommune']);
-$routes->post('modifier-commune', 'Commune::update', ['as' => 'updateCommune']);
+$routes->get('modifier_commune(:num)', 'Commune::modif/$1', ['as' => 'modifCommune']);
+$routes->post('modifier_commune', 'Commune::update', ['as' => 'updateCommune']);
 
-$routes->post('suppr-commune', 'Commune::delete', ['as' => 'supprCommune']);
+$routes->post('suppr_commune', 'Commune::delete', ['as' => 'supprCommune']);
 //-----------------------------------------------
 
-$routes->get('gestion-panneaux', 'Home::panneaux', ['as' => 'panneaux']);
+$routes->get('gestion_panneaux', 'Home::panneaux', ['as' => 'panneaux']);
 
 //----------------------------------------------- Panneau
-$routes->get('ajout-panneaux', 'Panneau::ajout', ['as' => 'ajoutPanneau']);
-$routes->post('ajout-panneaux', 'Panneau::create', ['as' => 'createPanneau']);
+$routes->get('ajout_panneaux', 'Panneau::ajout', ['as' => 'ajoutPanneau']);
+$routes->post('ajout_panneaux', 'Panneau::create', ['as' => 'createPanneau']);
 
-$routes->get('modifier-panneaux(:num)', 'Panneau::modif/$1', ['as' => 'modifPanneau']);
-$routes->post('modifier-panneaux', 'Panneau::update', ['as' => 'updatePanneau']);
+$routes->get('modifier_panneaux(:num)', 'Panneau::modif/$1', ['as' => 'modifPanneau']);
+$routes->post('modifier_panneaux', 'Panneau::update', ['as' => 'updatePanneau']);
 
-$routes->post('suppr-panneaux', 'Panneau::delete', ['as' => 'supprPanneau']);
+$routes->post('suppr_panneaux', 'Panneau::delete', ['as' => 'supprPanneau']);
 //-----------------------------------------------
 
-$routes->get('gestion-message', 'Home::message', ['as' => 'message']);
+$routes->get('gestion_message', 'Home::message', ['as' => 'message']);
 
 //----------------------------------------------- Message
-$routes->get('ajout-message', 'Message::ajout', ['as' => 'ajoutMessage']);
-$routes->post('ajout-message', 'Message::create', ['as' => 'createMessage']);
+$routes->get('ajout_message', 'Message::ajout', ['as' => 'ajoutMessage']);
+$routes->post('ajout_message', 'Message::create', ['as' => 'createMessage']);
 
-$routes->get('modifier-message(:num)', 'Message::modif/$1', ['as' => 'modifMessage']);
-$routes->post('modifier-message', 'Message::update', ['as' => 'updateMessage']);
+$routes->get('modifier_message(:num)', 'Message::modif/$1', ['as' => 'modifMessage']);
+$routes->post('modifier_message', 'Message::update', ['as' => 'updateMessage']);
 
-$routes->post('suppr-message', 'Message::delete', ['as' => 'supprMessage']);
+$routes->post('suppr_message', 'Message::delete', ['as' => 'supprMessage']);
 //-----------------------------------------------
 
-$routes->get('gestion-utilisateur', 'Home::utilisateur', ['as' => 'utilisateur']);
+$routes->get('gestion_utilisateur', 'Home::utilisateur', ['as' => 'utilisateur']);
 
 //----------------------------------------------- Utilisateur
-$routes->get('ajout-utilisateur', 'Utilisateur::ajout', ['as' => 'ajoutUtilisateur']);
-$routes->post('ajout-utilisateur', 'Utilisateur::create', ['as' => 'createUtilisateur']);
+$routes->get('ajout_utilisateur', 'Utilisateur::ajout', ['as' => 'ajoutUtilisateur']);
+$routes->post('ajout_utilisateur', 'Utilisateur::create', ['as' => 'createUtilisateur']);
 
-$routes->get('modifier-utilisateur(:num)', 'Utilisateur::modif/$1', ['as' => 'modifUtilisateur']);
-$routes->post('modifier-utilisateur', 'Utilisateur::update', ['as' => 'updateUtilisateur']);
+$routes->get('modifier_utilisateur(:num)', 'Utilisateur::modif/$1', ['as' => 'modifUtilisateur']);
+$routes->post('modifier_utilisateur', 'Utilisateur::update', ['as' => 'updateUtilisateur']);
 
-$routes->post('suppr-utilisateur', 'Utilisateur::delete', ['as' => 'supprUtilisateur']);
+$routes->post('suppr_utilisateur', 'Utilisateur::delete', ['as' => 'supprUtilisateur']);
 
