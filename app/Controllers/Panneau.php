@@ -15,7 +15,7 @@ class Message extends BaseController
         $this->panneauxModel = model('Panneau');
     }
 
-    public function index(): string
+    public function liste(): string
     {
         $panneaux = $this->panneauxModel->findJoinAll();
 
