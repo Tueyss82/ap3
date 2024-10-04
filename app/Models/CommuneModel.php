@@ -4,15 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Panneau extends Model
+class CommuneModel extends Model
 {
-    protected $table            = 'panneaus';
+    protected $table            = 'commune';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'nom',
+        'departement'
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +46,12 @@ class Panneau extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function findJoinAll()
+    {
+        return $this
+            ->select('commune.idcommune, commune.nom, commune.departement')
+            ->join('utilisateur', 'commune.idcommune = utilisateur.idcommune')
+            ->findAll();
+    }
 }

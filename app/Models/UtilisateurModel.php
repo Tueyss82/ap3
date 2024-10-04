@@ -4,15 +4,21 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Message extends Model
+class UtilisateurModel extends Model
 {
-    protected $table            = 'messages';
-    protected $primaryKey       = 'id';
+    protected $table            = 'utilisateur';
+    protected $primaryKey       = 'idutilisateur';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'idcommune',
+        'identifiant',
+        'motdepasse',
+        'mail',
+        'role'
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
