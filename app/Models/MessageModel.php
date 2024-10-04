@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class MessageModel extends Model
 {
-    protected $table            = 'messages';
+    protected $table            = 'message';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -43,4 +43,11 @@ class MessageModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function findJoinAll() {
+        return $this
+        ->select('panneau.ID, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, commune.ID as commune_id')
+        ->join('commune', 'commune_id = panneau.ID')
+        ->findAll();
+    }
 }

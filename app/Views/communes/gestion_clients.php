@@ -7,7 +7,7 @@
         <?php
         $table = new \CodeIgniter\View\Table();
 
-        $table->setHeading(['IDCommune', 'Nom','Departement', 'Modifier', 'Supprimer']);
+        $table->setHeading(['IDCommune', 'Nom', 'Departement', 'Modifier', 'Supprimer']);
         foreach ($gestion_clients as $commune => $va) {
 
             $table->addRow(
@@ -23,5 +23,5 @@
 
         ?>
     </h1>
-    </section>
-    <?= $this->endSection() ?>
+</section>
+<?= $this->endSection() ?>

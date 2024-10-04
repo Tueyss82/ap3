@@ -49,4 +49,12 @@ class UtilisateurModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function findJoinAll()
+    {
+        return $this
+            ->select('commune.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
+            ->join('commune', 'commune.idcommune = utilisateur.idcommune')
+            ->findAll();
+    }
 }

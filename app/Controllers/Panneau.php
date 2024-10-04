@@ -11,56 +11,85 @@ class Message extends BaseController
 
     public function __construct()
     {
-        $this->communeModel = model('');
-        $this->panneauxModel = model('');
+        $this->communeModel = model('Commune');
+        $this->panneauxModel = model('Panneau');
     }
 
     public function index(): string
     {
         $panneaux = $this->panneauxModel->findJoinAll();
 
-        return view('gestion-panneaux', [
-            'panneau' => $panneaux
+        return view('panneaux', [
+            'listePanneaux' => $panneaux
         ]);
     }
 
-    public function ajout_panneaux(): string
+    public function ajout(): string
     {
+<<<<<<< HEAD
+        $panneau = $this->panneauxModel->findAll();
+        return view('ajoutPanneau',[
+            'panneauAjout' => $panneau
+=======
         $departements = $this->panneauxModel->findAll();
         return view('nouvel_etudiant',[
             'listeDepartement' => $departements
+>>>>>>> 8529b149a7d555f8c5d0e75daa928cadd8b74f2a
         ]);
     }
 
     public function create()
     {
+<<<<<<< HEAD
+        $panneau = $this->request->getPost();
+        $this->panneauxModel->save($panneau);
+        return redirect('panneaux');
+=======
         $etudiant = $this->request->getPost();
         $this->panneauxModel->save($etudiant);
         return redirect('index');
+>>>>>>> 8529b149a7d555f8c5d0e75daa928cadd8b74f2a
     }
 
-    public function modif($etudiantId): string
+    public function modif($panneauId): string
     {
+<<<<<<< HEAD
+        $panneau = $this->panneauxModel->find($panneauId);
+=======
         $departements = $this->panneauxModel->findAll();
         $etudiantId = $this->communeModel->find($etudiantId);
+>>>>>>> 8529b149a7d555f8c5d0e75daa928cadd8b74f2a
 
-        return view('modifier_etudiant', [
-            'etudiant' => $etudiantId,
-            'listeDepartement' => $departements
+        return view('modifPanneau', [
+            'panneauModif' => $panneau
         ]);
     }
     public function update()
     {
+<<<<<<< HEAD
+        $panneau = $this->request->getPost();
+        $this->panneauxModel->save($panneau);
+=======
         $etudiant = $this->request->getPost();
         $this->panneauxModel->save($etudiant);
+>>>>>>> 8529b149a7d555f8c5d0e75daa928cadd8b74f2a
 
-        return redirect('index');
+        return redirect('panneaux');
     }
 
-    public function delete($etudiantId)
+    public function delete($panneauId)
     {
+<<<<<<< HEAD
+        $this->panneauxModel->delete($panneauId);
+        return redirect('panneaux');
+    }
+}
+
+
+=======
         $this->panneauxModel->delete($etudiantId);
         return redirect('index');
     }
 }
 
+>>>>>>> 8529b149a7d555f8c5d0e75daa928cadd8b74f2a
