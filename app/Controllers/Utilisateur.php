@@ -18,9 +18,9 @@ class Utilisateur extends BaseController
 
     public function ajout(): string
     {
-        $commune = $this->userModel->findJoinAll();
-        return view('ajout_utilisateur', [
-            'listeCommune' => $commune
+        $commune = $this->communeModel->findAll();
+        return view('utilisateurs/ajout_utilisateur', [
+            'listeUtilisateur' => $commune
         ]);
     }
 
@@ -28,14 +28,14 @@ class Utilisateur extends BaseController
     {
         $userData = $this->request->getPost();
         $this->userModel->save($userData);
-        return redirect('gestion_utilisateur');
+        return redirect('index');
     }
 
     public function modif($userId): string
     {
         $user = $this->userModel->find($userId);
 
-        return view('modif_utilisateur', [
+        return view('utilisateurs/modifier_utilisateur', [
             'utilisateur' => $user,
         ]);
     }
@@ -44,13 +44,13 @@ class Utilisateur extends BaseController
     {
         $userData = $this->request->getPost();
         $this->userModel->save($userData);
-        return redirect('gestion_utilisateur');   
+        return redirect('index');   
     }
 
     public function delete($userId)
     {
         $this->userModel->delete($userId);
-        return redirect('gestion_utilisateur');
+        return redirect('index');
     }
 
 }

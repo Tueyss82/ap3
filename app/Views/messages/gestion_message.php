@@ -7,10 +7,9 @@
     <?php
 
     $table = new \CodeIgniter\View\Table();
-    $table->setHeading('IDCOMMUNE', 'ETAT', 'TEXTE', 'COULEUR', 'TAILLE', 'Modifier', 'Supprimer');
+    $table->setHeading('ETAT', 'TEXTE', 'COULEUR', 'TAILLE', 'Modifier', 'Supprimer');
     foreach ($messages as $message) {
         $table->addRow(
-            $message['IDCOMMUNE'],
             $message['ETAT'],
             $message['TEXTE'],
             $message['COULEUR'],

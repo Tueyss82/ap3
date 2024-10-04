@@ -2,8 +2,21 @@
 
 namespace App\Controllers;
 
+use App\Models\UtilisateurModel;
+use App\Models\CommuneModel;
+
 class Home extends BaseController
 {
+    private $userModel;
+    private $communeModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UtilisateurModel;
+        $this->communeModel = new CommuneModel;
+
+    }
+
     public function index(): string
     {
         return view('welcome_message');
