@@ -49,7 +49,7 @@ $routes->post('modifier_message', 'Message::update', ['as' => 'updateMessage']);
 $routes->post('suppr_message', 'Message::delete', ['as' => 'supprMessage']);
 //-----------------------------------------------
 
-$routes->get('utilisateurs/gestion_utilisateur', 'Home::utilisateur', ['as' => 'utilisateur']);
+$routes->get('gestion_utilisateur', 'Utilisateur::index', ['as' => 'utilisateur']);
 
 //----------------------------------------------- Utilisateur
 $routes->get('ajout_utilisateur', 'Utilisateur::ajout', ['as' => 'ajoutUtilisateur']);

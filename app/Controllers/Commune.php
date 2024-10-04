@@ -11,16 +11,16 @@ class Commune extends BaseController
 
     public function __construct()
     {
-        $this->communeModel = model('Commune');
+        $this->communeModel = model('CommuneModel');
     }
 
     //----------------------------------------------------------------------------------------------------------------------------------------//
 
     public function clients(): string //get
     {
-        $communes = $this->communeModel->findJoinAll();
+        $communes = $this->communeModel->findAll();
 
-        return view('gestion-clients', [
+        return view('communes/gestion_clients', [
             'listeCommune' => $communes
         ]);
     }
