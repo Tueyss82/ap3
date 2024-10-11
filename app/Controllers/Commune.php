@@ -58,7 +58,7 @@ class Commune extends BaseController
         return redirect('clients');
     }
     //----------------------------------------------------------------------------------------------------------------------------------------//
-    public function delete($IDCOMMUNE) //get
+    public function delete($IDCOMMUNE) //post
     {
         $this->communeModel->delete($IDCOMMUNE);
         return redirect('clients');
