@@ -9,7 +9,7 @@
         <option value="">Choisissez un département</option>
         <?php
         foreach ($listeCommune as $commune) {
-            echo "<option value=" . $commune['IDCOMMUNE'] . ">" . $commune['NOM'] . " (" . $commune['DEPARTEMENT'] . ")</option>";
+            echo "<option value=" . $commune['IDCOMMUNE'] . " selected>" . $commune['NOM'] . " (" . $commune['DEPARTEMENT'] . ")</option>";
         }
         ?>
     </select>
