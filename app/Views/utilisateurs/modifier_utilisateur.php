@@ -1,8 +1,9 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('contenu') ?>
 
+
 <form method="post" action="<?= url_to('updateUtilisateur') ?>">
-    <input id="IDUTILISATEUR" name="IDUTILISATEUR" type="hidden" value="<?= $utilisateur['IDUTILISATEUR'] ?>"/>
+    <input id="id" name="id" type="hidden" value="<?= $utilisateur['IDUTILISATEUR'] ?>"/>
     <label for="departement">Département</label>
     <select name="IDCOMMUNE">
         <option value="">Choisissez un département</option>

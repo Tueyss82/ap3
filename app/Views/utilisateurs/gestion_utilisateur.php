@@ -21,7 +21,11 @@ foreach ($listeUtilisateur as $user) {
         $user['NOMCOMMUNE'],
         $user['DEPARTEMENT'],
         '<a class=button href="' . url_to('modifUtilisateur', $user['IDUTILISATEUR']) . '">Modifier</a>',
-        '<a class=button href="' . url_to('supprUtilisateur', $user['IDUTILISATEUR']) . '">Supprimer</a>'
+        '<form method="post" action="'.url_to('supprUtilisateur', $user['IDUTILISATEUR']).'">
+            <input type="hidden" name="IDUTILISATEUR" value="'. $user['IDUTILISATEUR'] .'">
+            <input type="submit" value="Supprimmer">
+        </form>',
+
     );
 }
 echo $table->generate();

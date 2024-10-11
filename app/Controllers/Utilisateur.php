@@ -58,11 +58,14 @@ class Utilisateur extends BaseController
     {
         $userData = $this->request->getPost();
         $this->userModel->save($userData);
+        // var_dump($userData);
+        // die();
         return redirect('index');   
     }
 
-    public function delete($userId)
+    public function delete()
     {
+        $userId = $this->request->getPost('IDUTILISATEUR');
         $this->userModel->delete($userId);
         return redirect('index');
     }

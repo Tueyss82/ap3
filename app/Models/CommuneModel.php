@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class CommuneModel extends Model
 {
     protected $table            = 'commune';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'idcommune';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;

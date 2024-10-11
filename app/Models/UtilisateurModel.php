@@ -57,4 +57,10 @@ class UtilisateurModel extends Model
             ->join('commune', 'commune.IDCOMMUNE = utilisateur.IDCOMMUNE')
             ->findAll();
     }
+
+    // public function deleteId($userId)
+    // {
+    //     return $this
+    //         ->delete('IDUTILISATEUR = '.$userId['IDUTILISATEUR']);
+    // }
 }
