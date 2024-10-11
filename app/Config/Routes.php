@@ -35,7 +35,7 @@ $routes->post('modifier_panneaux', 'Panneau::update', ['as' => 'updatePanneau'])
 $routes->post('suppr_panneaux', 'Panneau::delete', ['as' => 'supprPanneau']);
 //-----------------------------------------------
 
-$routes->get('gestion_message', 'Home::message', ['as' => 'message']);
+$routes->get('gestion_message', 'Message::index', ['as' => 'message']);
 
 //----------------------------------------------- Message
 $routes->get('ajout_message', 'Message::ajout', ['as' => 'ajoutMessage']);
