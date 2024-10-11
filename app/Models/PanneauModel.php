@@ -15,8 +15,7 @@ class PanneauModel extends Model
     protected $allowedFields    = [
         'REFERENCE', 
         'LATITUDE',
-        'LONGITUDE',
-        'IDCOMMUNE'
+        'LONGITUDE'
 ];
 
     protected bool $allowEmptyInserts = false;
