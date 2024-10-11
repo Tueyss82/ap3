@@ -12,8 +12,8 @@ class Utilisateur extends BaseController
 
     public function __construct()
     {
-        $this->userModel = new UtilisateurModel();
-        $this->communeModel = new CommuneModel();
+        $this->userModel = model('UtilisateurModel');
+        $this->communeModel = model('CommuneModel');
     }
 
     public function index(): string
@@ -35,6 +35,8 @@ class Utilisateur extends BaseController
     public function create()
     {
         $userData = $this->request->getPost();
+        // var_dump($userData);
+        // die();
         $this->userModel->save($userData);
         return redirect('index');
     }
