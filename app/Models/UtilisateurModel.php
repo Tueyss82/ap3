@@ -53,7 +53,8 @@ class UtilisateurModel extends Model
     public function findJoinAll()
     {
         return $this
-            ->select('commune.IDCOMMUNE as IDCOMMUNE, commune.NOM as NOMCOMMUNE, commune.DEPARTEMENT as DEPARTEMENT, utilisateur.IDUTILISATEUR')
+            ->select('commune.IDCOMMUNE as IDCOMMUNE, commune.NOM as NOMCOMMUNE, commune.DEPARTEMENT as DEPARTEMENT, 
+            utilisateur.IDUTILISATEUR, utilisateur.IDENTIFIANT, utilisateur.MAIL, utilisateur.ROLE')
             ->join('commune', 'commune.IDCOMMUNE = utilisateur.IDCOMMUNE')
             ->findAll();
     }
