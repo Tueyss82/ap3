@@ -13,7 +13,13 @@
             $va['NOM'],
             $va['DEPARTEMENT'],
             '<a class="button" href="' . url_to('modifCommune', $va['IDCOMMUNE']) . '">modifier</a>',
-            '<a class="button" href="' . url_to('supprCommune', $va['IDCOMMUNE']) . '">supprimer</a>'
+            
+
+            '<form class="form-suppresion" action"'.url
+            '<form method="post" action=". url_to('supprCommune')"> ',
+            '<input type="hidden" value=".$va['IDCOMMUNE']">',
+            '<input type="submit" value="Supprimer">',
+
         );
 
     }

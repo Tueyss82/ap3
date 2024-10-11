@@ -8,7 +8,7 @@
   <label for="dep">Département</label>
   <input type="text" id="departement" name="departement" value=<?= $commune['DEPARTEMENT'] ?>>
   <input type="submit" value="Modifier" />
-  <input id="IDCOMMUNE" name="IDCOMMUNE" type="hidden" value="<?= $commune['IDCOMMUNE']?>">
+  <input id="IDCOMMUNE" name="IDCOMMUNE" type="hidden" value="<?= $commune['IDCOMMUNE'] ?>">
 </form>
 
 
