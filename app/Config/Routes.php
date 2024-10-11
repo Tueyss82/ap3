@@ -23,7 +23,7 @@ $routes->post('modifier_commune', 'Commune::update', ['as' => 'updateCommune']);
 $routes->post('suppr_commune', 'Commune::delete', ['as' => 'supprCommune']);
 //-----------------------------------------------
 
-$routes->get('gestion_panneaux', 'Home::panneaux', ['as' => 'panneaux']);
+$routes->get('gestion_panneaux', 'Panneau::index', ['as' => 'panneaux']);
 
 //----------------------------------------------- Panneau
 $routes->get('ajout_panneaux', 'Panneau::ajout', ['as' => 'ajoutPanneau']);
