@@ -56,5 +56,5 @@ $routes->post('ajout_utilisateur', 'Utilisateur::create', ['as' => 'createUtilis
 $routes->get('modifier_utilisateur(:num)', 'Utilisateur::modif/$1', ['as' => 'modifUtilisateur']);
 $routes->post('modifier_utilisateur', 'Utilisateur::update', ['as' => 'updateUtilisateur']);
 
-$routes->post('suppr_utilisateur', 'Utilisateur::delete', ['as' => 'supprUtilisateur']);
+$routes->get('suppr_utilisateur(:num)', 'Utilisateur::delete/$1', ['as' => 'supprUtilisateur']);
 

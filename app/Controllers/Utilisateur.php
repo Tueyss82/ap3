@@ -44,9 +44,13 @@ class Utilisateur extends BaseController
     public function modif($userId): string
     {
         $user = $this->userModel->find($userId);
-
+        $commune = $this->communeModel->findAll();
+        // var_dump($user);
+        // var_dump($commune);
+        // die();
         return view('utilisateurs/modifier_utilisateur', [
             'utilisateur' => $user,
+            'listeCommune' => $commune
         ]);
     }
 
