@@ -2,24 +2,21 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
-
-class Message extends BaseController
+class Panneau extends BaseController
 {
-    private $communeModel;
+    
     private $panneauxModel;
 
     public function __construct()
     {
-        $this->communeModel = model('Commune');
-        $this->panneauxModel = model('Panneau');
+        $this->panneauxModel = model('PanneauModel');
     }
 
-    public function liste(): string
+    public function index(): string
     {
         $panneaux = $this->panneauxModel->findJoinAll();
 
-        return view('panneaux', [
+        return view('panneaux/gestion_panneaux', [
             'listePanneaux' => $panneaux
         ]);
     }
@@ -27,7 +24,7 @@ class Message extends BaseController
     public function ajout(): string
     {
         $panneau = $this->panneauxModel->findAll();
-        return view('ajoutPanneau',[
+        return view('panneaux/ajout_panneaux',[
             'panneauAjout' => $panneau
         ]);
     }
@@ -36,14 +33,14 @@ class Message extends BaseController
     {
         $panneau = $this->request->getPost();
         $this->panneauxModel->save($panneau);
-        return redirect('panneaux');
+        return redirect('panneaux/ajout_panneaux');
     }
 
     public function modif($panneauId): string
     {
-        $panneau = $this->panneauxModel->find($panneauId);
+        $panneau = $this->panneauxModel->findJoinAll();
 
-        return view('modifPanneau', [
+        return view('panneaux/modifier_panneaux', [
             'panneauModif' => $panneau
         ]);
     }
@@ -52,13 +49,13 @@ class Message extends BaseController
         $panneau = $this->request->getPost();
         $this->panneauxModel->save($panneau);
 
-        return redirect('panneaux');
+        return redirect('panneaux/modifier_panneaux');
     }
 
-    public function delete($panneauId)
+    public function delete()
     {
-        $this->panneauxModel->delete($panneauId);
-        return redirect('panneaux');
+        $this->panneauxModel->delete();
+        return redirect('panneaux/suppr_panneaux');
     }
 }
 

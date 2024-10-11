@@ -28,7 +28,7 @@ class Commune extends BaseController
     public function ajout(): string //get
     {
         $communes = $this->communeModel->findAll();
-        return view('ajout_commune', [
+        return view('communes/ajout_commune', [
             'listeCommune' => $communes
         ]);
     }
@@ -37,20 +37,22 @@ class Commune extends BaseController
         $commune = $this->request->getPost();
         $this->communeModel->insert($commune);
 
-        return redirect('index');
+        return redirect('communes/gestion_clients');
     }
     //----------------------------------------------------------------------------------------------------------------------------------------//
     public function modif($IDCOMMUNE): string //get
     {
         $communes = $this->communeModel->find($IDCOMMUNE);
 
-        return view('modifier_commune', [
+        return view('communes/modifier_commune', [
             'commune' => $communes
         ]);
     }
     public function update() //post
     {
         $commune = $this->request->getPost();
+//         var_dump($commune);
+// die();
         $this->communeModel->save($commune);
 
         return redirect('clients');

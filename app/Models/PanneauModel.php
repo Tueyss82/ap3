@@ -7,12 +7,17 @@ use CodeIgniter\Model;
 class PanneauModel extends Model
 {
     protected $table            = 'panneau';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'IDPANNEAU';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'REFERENCE', 
+        'LATITUDE',
+        'LONGITUDE',
+        'IDCOMMUNE'
+];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -46,8 +51,8 @@ class PanneauModel extends Model
 
     public function findJoinAll() {
         return $this
-        ->select('panneau.ID, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, commune.ID as commune_id')
-        ->join('commune', 'commune_id = panneau.ID')
+        ->select('panneau.IDPANNEAU, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, commune.IDCOMMUNE')
+        ->join('commune', 'commune.IDCOMMUNE = panneau.IDPANNEAU')
         ->findAll();
     }
 }
