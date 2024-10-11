@@ -28,7 +28,7 @@ class Commune extends BaseController
     public function ajout(): string //get
     {
         $communes = $this->communeModel->findAll();
-        return view('ajout_commune', [
+        return view('communes/ajout_commune', [
             'listeCommune' => $communes
         ]);
     }
@@ -44,7 +44,7 @@ class Commune extends BaseController
     {
         $communes = $this->communeModel->find($IDCOMMUNE);
 
-        return view('modifier_commune', [
+        return view('communes/modifier_commune', [
             'commune' => $communes
         ]);
     }
