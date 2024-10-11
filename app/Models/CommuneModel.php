@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 class CommuneModel extends Model
 {
     protected $table            = 'commune';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'IDCOMMUNE';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nom',
-        'departement'
+        'NOM',
+        'DEPARTEMENT'
     ];
 
     protected bool $allowEmptyInserts = false;
