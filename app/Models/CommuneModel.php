@@ -13,8 +13,8 @@ class CommuneModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'NOM',
-        'DEPARTEMENT'
+        'nom',
+        'departement'
     ];
 
     protected bool $allowEmptyInserts = false;

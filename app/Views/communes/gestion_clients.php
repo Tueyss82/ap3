@@ -6,11 +6,10 @@
     <?php
     $table = new \CodeIgniter\View\Table();
 
-    $table->setHeading(['IDCommune', 'Nom', 'Departement', 'Modifier', 'Supprimer']);
+    $table->setHeading(['Nom', 'Departement', 'Modifier', 'Supprimer']);
     foreach ($listeCommune as $commune => $va) {
 
         $table->addRow(
-            $va['IDCOMMUNE'],
             $va['NOM'],
             $va['DEPARTEMENT'],
             '<a class="button" href="' . url_to('modifCommune', $va['IDCOMMUNE']) . '">modifier</a>',
