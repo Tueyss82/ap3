@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Panneau extends BaseController
 {
-    
+
     private $panneauxModel;
 
     public function __construct()
@@ -23,33 +23,33 @@ class Panneau extends BaseController
 
     public function ajout(): string
     {
-        $panneau = $this->panneauxModel->findAll();
-        return view('panneaux/ajout_panneaux',[
-            'panneauAjout' => $panneau
-        ]);
+        return view('panneaux/ajout_panneaux');
     }
 
     public function create()
     {
-        $panneau = $this->request->getPost();
-        $this->panneauxModel->save($panneau);
-        return redirect('panneaux/ajout_panneaux');
+        $panneauAjout = $this->request->getPost();
+      
+        $this->panneauxModel->save($panneauAjout);
+        return redirect('panneaux');
     }
 
-    public function modif($panneauId): string
+    public function modif($idPanneau): string
     {
-        $panneau = $this->panneauxModel->findJoinAll();
+        $panneauId = $this->panneauxModel->find($idPanneau);
 
         return view('panneaux/modifier_panneaux', [
-            'panneauModif' => $panneau
+            'panneau' => $panneauId
         ]);
     }
     public function update()
     {
         $panneau = $this->request->getPost();
+        // var_dump($panneau);
+        // die();
         $this->panneauxModel->save($panneau);
 
-        return redirect('panneaux/modifier_panneaux');
+        return redirect('panneaux');
     }
 
     public function delete()
@@ -58,5 +58,3 @@ class Panneau extends BaseController
         return redirect('panneaux/suppr_panneaux');
     }
 }
-
-
