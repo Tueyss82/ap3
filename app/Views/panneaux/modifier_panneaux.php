@@ -1,21 +1,23 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('contenu') ?>
 
-<!--  -->
 <h1>Modifier Panneaux</h1>
 <form action= "<?= url_to("updatePanneau") ?>" method="post">
-    <label for="reference">Nom Panneau</label>
-    <input type="text" id="reference" name="reference" value="<?= $panneauModif['REFERENCE'] ?>" />
+    <label for="name">Nom Panneau</label>
+    <input type="text" id="name" name="REFERENCE" value="<?= $panneau['REFERENCE'] ?>" >
 
     <label for="latitude">Latitude</label>
-    <input type="text" id="latitude" name="latitude" value="<?= $panneauModif['LATITUDE'] ?>" />
+    <input type="text" id="latitude" name="LATITUDE" value="<?= $panneau['LATITUDE'] ?>" >
 
     <label for="longitude">Longitude</label>
-    <input type="text" id="longitude" name="longitude" value="<?= $panneauModif['LONGITUDE'] ?>" />
+    <input type="text" id="longitude" name="LONGITUDE" value="<?= $panneau['LONGITUDE'] ?>">
 
-    <input name="id" id="id" type="hidden" value="<?= $panneauModif['IDPANNEAU'] ?>" />
-
-    <input type="submit" value="Valider" />
+    <input name="IDPANNEAU" id="id" type="hidden" value="<?= $panneau['IDPANNEAU'] ?>" >
+    <input type="submit" value="Valider" >
 </form>
 
+
 <?= $this->endSection() ?>
+
+
+
