@@ -26,7 +26,7 @@ foreach ($listeUtilisateur as $user) {
         '<a class=button href="' . url_to('modifUtilisateur', $user['IDUTILISATEUR']) . '">Modifier</a>',
         '<form method="post" class="button" action="'.url_to('supprUtilisateur', $user['IDUTILISATEUR']).'">
             <input type="hidden" name="IDUTILISATEUR" value="'. $user['IDUTILISATEUR'] .'">
-            <input type="submit" value="Supprimmer">
+            <input type="submit" value="Supprimer">
         </form>',
 
     );
