@@ -1,11 +1,12 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('contenu') ?>
 
+<a class="bouton" href= "<?=url_to('ajoutPanneau')?>">Ajouter</a>
 <?php
 
     $table = new \CodeIgniter\View\Table();
     $table->setHeading('Panneaux', 'Latitude', 'Longitude','Modifier','Supprimer');
-    echo '<a class="bouton" href="' . url_to('ajoutPanneau') . '">Ajouter</a>';
+    
     foreach ($listePanneaux as $colonne) {
         //echo '<li>' . $valeur['nom'] . ' ' . $valeur['prenom'] . '</li>';
         $table->addRow(
