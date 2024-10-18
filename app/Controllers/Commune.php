@@ -37,7 +37,7 @@ class Commune extends BaseController
         $commune = $this->request->getPost();
         $this->communeModel->insert($commune);
 
-        return redirect('communes/gestion_clients');
+        return redirect('clients');
     }
     //----------------------------------------------------------------------------------------------------------------------------------------//
     public function modif($IDCOMMUNE): string //get

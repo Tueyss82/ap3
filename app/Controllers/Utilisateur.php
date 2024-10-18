@@ -57,10 +57,10 @@ class Utilisateur extends BaseController
     public function update()
     {
         $userData = $this->request->getPost();
+        var_dump($userData);
+        die();
         $this->userModel->save($userData);
-        // var_dump($userData);
-        // die();
-        return redirect('index');   
+        return redirect('index');
     }
 
     public function delete()
@@ -69,5 +69,4 @@ class Utilisateur extends BaseController
         $this->userModel->delete($userId);
         return redirect('index');
     }
-
 }
