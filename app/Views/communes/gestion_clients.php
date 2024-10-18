@@ -2,7 +2,7 @@
 <?= $this->section('contenu') ?>
 <section>
 
-    <a class="bouton" href="<?= url_to('ajoutCommune') ?>">Nouvelle commune</a>
+    <a class="button" href="<?= url_to('ajoutCommune') ?>">Nouvelle commune</a>
     <?php
     $table = new \CodeIgniter\View\Table();
 
@@ -13,9 +13,9 @@
             $va['NOM'],
             $va['DEPARTEMENT'],
             '<a class="button" href="' . url_to('modifCommune', $va['IDCOMMUNE']) . '">modifier</a>',
-            '<form  class="form-suppr" method="post" action="' . url_to('supprCommune', $va['IDCOMMUNE']) . '">
+            '<form method="post" action="' . url_to('supprCommune', $va['IDCOMMUNE']) . '">
                 <input type="hidden" name="IDCOMMUNE" value="' . $va['IDCOMMUNE'] . '">
-                <input type="submit" value="Supprimmer">
+                <input class="form-suppr" type="submit" value="Supprimmer">
             </form>',
         );
     }
