@@ -57,8 +57,8 @@ class Utilisateur extends BaseController
     public function update()
     {
         $userData = $this->request->getPost();
-        var_dump($userData);
-        die();
+        // var_dump($userData);
+        // die();
         $this->userModel->save($userData);
         return redirect('index');
     }
