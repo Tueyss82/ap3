@@ -38,7 +38,7 @@ class Utilisateur extends BaseController
         // var_dump($userData);
         // die();
         $this->userModel->save($userData);
-        return redirect('index');
+        return redirect('utilisateur');
     }
 
     public function modif($userId): string
@@ -60,13 +60,13 @@ class Utilisateur extends BaseController
         // var_dump($userData);
         // die();
         $this->userModel->save($userData);
-        return redirect('index');
+        return redirect('utilisateur');
     }
 
     public function delete()
     {
         $userId = $this->request->getPost('IDUTILISATEUR');
         $this->userModel->delete($userId);
-        return redirect('index');
+        return redirect('utilisateur');
     }
 }
