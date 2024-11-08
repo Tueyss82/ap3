@@ -14,6 +14,7 @@ class Panneau extends BaseController
 
     public function index(): string
     {
+
         $panneaux = $this->panneauxModel->findJoinAll();
 
         return view('panneaux/gestion_panneaux', [
@@ -23,13 +24,16 @@ class Panneau extends BaseController
 
     public function ajout(): string
     {
-        return view('panneaux/ajout_panneaux');
+        
+        $communes = $this->panneauxModel->findJoinAll();
+        return view('panneaux/ajout_panneaux', ['commune'=> $communes]);
     }
 
     public function create()
     {
+        
         $panneauAjout = $this->request->getPost();
-      
+        
         $this->panneauxModel->save($panneauAjout);
         return redirect('panneaux');
     }
@@ -37,9 +41,9 @@ class Panneau extends BaseController
     public function modif($idPanneau): string
     {
         $panneauId = $this->panneauxModel->find($idPanneau);
-
+        $communes = $this->panneauxModel->findJoinAll();
         return view('panneaux/modifier_panneaux', [
-            'panneau' => $panneauId
+            'panneau' => $panneauId,'commune'=> $communes
         ]);
     }
     public function update()
@@ -54,7 +58,8 @@ class Panneau extends BaseController
 
     public function delete()
     {
-        $this->panneauxModel->delete();
-        return redirect('panneaux/suppr_panneaux');
+        $idPanneau = $this->request->getPost('IDPANNEAU');
+        $this->panneauxModel->delete($idPanneau);
+        return redirect('panneaux');
     }
 }
