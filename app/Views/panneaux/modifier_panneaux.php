@@ -6,7 +6,6 @@
     <label for="name">Nom Panneau</label>
     <input type="text" id="name" name="REFERENCE" value="<?= $panneau['REFERENCE'] ?>" >
     
-    <input type="hidden" id = "IDCOMMUNE" name="IDCOMMUNE" value="'<?= $panneau['IDCOMMUNE']?>'">
     <label for="latitude">Latitude</label>
     <input type="text" id="latitude" name="LATITUDE" value="<?= $panneau['LATITUDE'] ?>" >
 
