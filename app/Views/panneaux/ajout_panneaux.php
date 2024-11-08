@@ -10,7 +10,7 @@
         <option value="">--Choisissez une commune--</option>
         <option value="">$commune['NOM']?> - $commune['DEPARTEMENT']?></option>
     </select> -->
-    <select>
+    <select id="IDCOMMUNE" name = "IDCOMMUNE" value="">
     <?php
     foreach ($commune as $attribut) {
             echo "<option value=" . $attribut['IDCOMMUNE'] . ">" . $attribut['NOM'] . " (" . $attribut['DEPARTEMENT'] . ")</option>";

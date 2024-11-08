@@ -54,7 +54,7 @@ class PanneauModel extends Model
     public function findJoinAll() {
         return $this
         ->select('panneau.IDPANNEAU, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, panneau.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
-        ->join('commune', 'commune.IDCOMMUNE = panneau.IDPANNEAU')
+        ->join('commune', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
         ->findAll();
     }
 }

@@ -5,14 +5,7 @@
 <form action= "<?= url_to("updatePanneau") ?>" method="post">
     <label for="name">Nom Panneau</label>
     <input type="text" id="name" name="REFERENCE" value="<?= $panneau['REFERENCE'] ?>" >
-    <select>
-    <?php
-    foreach ($commune as $attribut) {
-            echo "<option value=" . $attribut['IDCOMMUNE'] . ">" . $attribut['NOM'] . " (" . $attribut['DEPARTEMENT'] . ")</option>";
-            
-        }
-    ?>
-    </select>
+    
     <input type="hidden" id = "IDCOMMUNE" name="IDCOMMUNE" value="'<?= $panneau['IDCOMMUNE']?>'">
     <label for="latitude">Latitude</label>
     <input type="text" id="latitude" name="LATITUDE" value="<?= $panneau['LATITUDE'] ?>" >
