@@ -52,7 +52,7 @@ class Commune extends BaseController
     {
         $commune = $this->request->getPost();
 //         var_dump($commune);
-// die();
+// die();  
         $this->communeModel->save($commune);
 
         return redirect('clients');
