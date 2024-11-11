@@ -1,0 +1,31 @@
+<?= $this->extend('layout') ?>
+<?= $this->section('contenu') ?>
+
+<h1>Modifier un message</h1>
+
+<form action="<?= url_to('updateMessage') ?>" method="post">
+    <input type="hidden" name="IDMESSAGE" value="<?= $message['IDMESSAGE'] ?>" />
+
+    <label for="idcommune">ID Commune :</label>
+    <select name="IDCOMMUNE" id="idcommune">
+        <option value="">--Choisir une commune--</option>
+        <?php foreach ($listeCommune as $commune) : ?>
+            <option value="<?= $commune['IDCOMMUNE'] ?>" <?= $message['IDCOMMUNE'] == $commune['IDCOMMUNE'] ? 'selected' : '' ?>>
+                <?= $commune['NOMCOMMUNE'] ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
+    <label for="etat">État :</label>
+    <input type="text" id="etat" name="ETAT" value="<?= $message['ETAT'] ?>" required />
+
+    <label for="texte">Texte :</label>
+    <input type="text" id="texte" name="TEXTE" value="<?= $message['TEXTE'] ?>" required />
+
+    <label for="couleur">Couleur :</label>
+    <input type="text" id="couleur" name="COULEUR" value="<?= $message['COULEUR'] ?>" required />
+
+    <label for="taille">Taille :</label>
+    <input type="text" id="taille" name="TAILLE" value="<?= $message['TAILLE'] ?>" required />
+
+    <input type="submit" value="Mettre à
