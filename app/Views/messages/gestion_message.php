@@ -1,6 +1,6 @@
-<? $this->extend('layout')  ?>
+<?= $this->extend('layout')  ?>
 
-<? $this->section('contenu') ?>
+<?= $this->section('contenu') ?>
 
 <?php
 

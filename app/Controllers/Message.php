@@ -29,7 +29,7 @@ class Message extends BaseController
     {
         // Récupérer la liste des communes
         $listeCommune = $this->communeModel->findAll();
-        
+       
         return view('messages/ajout_message', [
             'listeCommune' => $listeCommune
         ]);
