@@ -218,7 +218,7 @@
             <li class="menu-item hidden"><a href="<?= url_to('connexion') ?>">Se Connecter</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('utilisateur') ?>">qdqdqdqd</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('clients') ?>">teste</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('message') ?>">test msg</a></li>
+            <li class="menu-item hidden"><a href="<?= url_to('message') ?>">Gestion des messages</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('panneaux') ?>">Gestion Panneaux</a></li>
             <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
             </li>

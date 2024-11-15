@@ -33,15 +33,17 @@ $routes->get('modifier_panneaux(:num)', 'Panneau::modif/$1', ['as' => 'modifPann
 $routes->post('modifier_panneaux', 'Panneau::update', ['as' => 'updatePanneau']);
 
 $routes->post('suppr_panneaux', 'Panneau::delete', ['as' => 'supprPanneau']);
-//-----------------------------------------------
-
-$routes->get('gestion_message', 'Message::index', ['as' => 'message']);
 
 //----------------------------------------------- Message
+
+$routes->get('gestion_message', 'Message::index', ['as' => 'message']); // Liste des messages
+
+$routes->get('message/(:num)', 'Message::view/$1', ['as' => 'viewMessage']); // Détails du message
+
 $routes->get('ajout_message', 'Message::ajout', ['as' => 'ajoutMessage']);
 $routes->post('ajout_message', 'Message::create', ['as' => 'createMessage']);
 
-$routes->get('modifier_message(:num)', 'Message::modif/$1', ['as' => 'modifMessage']);
+$routes->get('modifier_message/(:num)', 'Message::modif/$1', ['as' => 'modifMessage']);
 $routes->post('modifier_message', 'Message::update', ['as' => 'updateMessage']);
 
 $routes->post('suppr_message', 'Message::delete', ['as' => 'supprMessage']);

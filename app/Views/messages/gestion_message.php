@@ -1,25 +1,37 @@
-<?= $this->extend('layout') ?>
+<?= $this->extend('layout')  ?>
+
 <?= $this->section('contenu') ?>
-<!-- CONTENT -->
 
-<section>
-    <a class="bouton" href="<?= url_to('ajout_message') ?>">Ajouter un message</a>
-    <?php
+<?php
 
-    $table = new \CodeIgniter\View\Table();
-    $table->setHeading('ETAT', 'TEXTE', 'COULEUR', 'TAILLE', 'Modifier', 'Supprimer');
-    foreach ($messages as $message) {
-        $table->addRow(
-            $message['ETAT'],
-            $message['TEXTE'],
-            $message['COULEUR'],
-            $message['TAILLE'],
-            '<a class="bouton" href="' . url_to('modifier_message', $message['IDMESSAGE']) . '">Modifier</a>',
-            '<a class="bouton" href="' . url_to('suppr_message', $message['IDMESSAGE']) . '">Supprimer</a>'
-        );
-    }
-    echo $table->generate();
-    ?>
-</section>
+use \CodeIgniter\View\Table;
+
+$table = new Table();
+
+?>
+
+<a class="button" href="<?= url_to('ajoutMessage') ?>">Ajouter un message</a>
+
+<?php
+
+$table->setHeading('État', 'Texte', 'Couleur', 'Taille', 'Modifier', 'Supprimer');
+
+foreach ($messages as $message) {
+    $table->addRow(
+        $message['ETAT'],
+        $message['TEXTE'],
+        $message['COULEUR'],
+        $message['TAILLE'],
+        '<a class="button" href="' . url_to('modifMessage', $message['IDMESSAGE']) . '">Modifier</a>',
+        '<form method="post" class="form" action="' . url_to('supprMessage', $message['IDMESSAGE']) . '">
+            <input type="hidden" name="IDMESSAGE" value="' . $message['IDMESSAGE'] . '">
+            <input type="submit" value="Supprimer">
+        </form>'
+    );
+}
+
+echo $table->generate();
+
+?>
 
 <?= $this->endSection() ?>
