@@ -3,10 +3,10 @@
 
 <h1>Modifier un message</h1>
 
-<form action="<?= url_to('updateMessage') ?>" method="post">
+<form method="post" action="<?= url_to('updateMessage') ?>">
     <input type="hidden" name="IDMESSAGE" value="<?= $message['IDMESSAGE'] ?>" />
 
-    <label for="idcommune">ID Commune :</label>
+    <label for="idcommune">Commune :</label>
     <select name="IDCOMMUNE" id="idcommune">
         <option value="">--Choisir une commune--</option>
         <?php foreach ($listeCommune as $commune) : ?>
@@ -28,4 +28,7 @@
     <label for="taille">Taille :</label>
     <input type="text" id="taille" name="TAILLE" value="<?= $message['TAILLE'] ?>" required />
 
-    <input type="submit" value="Mettre à
+    <input type="submit" value="Mettre à jour" />
+</form>
+
+<?= $this->endSection() ?>

@@ -1,15 +1,15 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('contenu') ?>
 
-<h1>Ajouter un message</h1>
-
-<form action="<?= url_to('createMessage') ?>" method="post">
-    <label for="idcommune">ID Commune :</label>
-    <select name="IDCOMMUNE" id="idcommune">
-        <option value="">--Choisir une commune--</option>
-        <?php foreach ($listeCommune as $commune) : ?>
-            <option value="<?= $commune['IDCOMMUNE'] ?>"><?= $commune['NOMCOMMUNE'] ?></option>
-        <?php endforeach; ?>
+<form method="post" action="<?= url_to('createMessage') ?>">
+    <label for="departement">Département :</label>
+    <select name="IDCOMMUNE">
+        <option value="">Choisissez un département</option>
+        <?php
+        foreach ($listeCommune as $commune) {
+            echo "<option value=\"" . $commune['IDCOMMUNE'] . "\">" . $commune['NOMCOMMUNE'] . " (" . $commune['DEPARTEMENT'] . ")</option>";
+        }
+        ?>
     </select>
 
     <label for="etat">État :</label>
