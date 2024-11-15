@@ -17,6 +17,8 @@ class Panneau extends BaseController
 
         $panneaux = $this->panneauxModel->findJoinAll();
 
+        var_dump($panneaux);
+        die();
         return view('panneaux/gestion_panneaux', [
             'listePanneaux' => $panneaux
         ]);
