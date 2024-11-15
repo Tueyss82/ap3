@@ -11,7 +11,7 @@
         <option value="">--Choisir une commune--</option>
         <?php foreach ($listeCommune as $commune) : ?>
             <option value="<?= $commune['IDCOMMUNE'] ?>" <?= $message['IDCOMMUNE'] == $commune['IDCOMMUNE'] ? 'selected' : '' ?>>
-                <?= $commune['NOMCOMMUNE'] ?>
+                <?= $commune['NOM'] ?>
             </option>
         <?php endforeach; ?>
     </select>
@@ -25,8 +25,8 @@
     <label for="couleur">Couleur :</label>
     <input type="text" id="couleur" name="COULEUR" value="<?= $message['COULEUR'] ?>" required />
 
-    <label for="taille">Taille :</label>
-    <input type="text" id="taille" name="TAILLE" value="<?= $message['TAILLE'] ?>" required />
+   <!-- <label for="taille">Taille :</label>
+    <input type="text" id="taille" name="TAILLE" value="<?= $message['TAILLE'] ?>" required /> -->
 
     <input type="submit" value="Mettre à jour" />
 </form>
