@@ -14,14 +14,14 @@ $table = new Table();
 
 <?php
 
-$table->setHeading('État', 'Texte', 'Couleur', 'Taille', 'Modifier', 'Supprimer');
+$table->setHeading('État', 'Texte', 'Couleur', 'Modifier','Supprimer');
 
 foreach ($messages as $message) {
     $table->addRow(
         $message['ETAT'],
         $message['TEXTE'],
         $message['COULEUR'],
-        $message['TAILLE'],
+        // $message['TAILLE'],
         '<a class="button" href="' . url_to('modifMessage', $message['IDMESSAGE']) . '">Modifier</a>',
         '<form method="post" class="form" action="' . url_to('supprMessage', $message['IDMESSAGE']) . '">
             <input type="hidden" name="IDMESSAGE" value="' . $message['IDMESSAGE'] . '">

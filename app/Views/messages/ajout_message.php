@@ -13,16 +13,16 @@
     </select>
 
     <label for="etat">État :</label>
-    <input type="text" id="etat" name="ETAT" required />
+    <input type="text" id="ETAT" name="ETAT" required />
 
     <label for="texte">Texte :</label>
-    <input type="text" id="texte" name="TEXTE" required />
+    <input type="text" id="TEXTE" name="TEXTE" required />
 
     <label for="couleur">Couleur :</label>
     <input type="text" id="couleur" name="COULEUR" required />
 
-    <label for="taille">Taille :</label>
-    <input type="text" id="taille" name="TAILLE" required />
+    <!-- <label for="taille">Taille :</label>
+    <input type="text" id="taille" name="TAILLE" required /> -->
 
     <input type="submit" value="Valider" />
 </form>
