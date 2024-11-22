@@ -15,7 +15,10 @@ class PanneauModel extends Model
     protected $allowedFields    = [
         'REFERENCE', 
         'LATITUDE',
-        'LONGITUDE'
+        'LONGITUDE',
+        'IDCOMMUNE',
+        'NOM',
+        'DEPARTEMENT'
 ];
 
     protected bool $allowEmptyInserts = false;
@@ -50,8 +53,8 @@ class PanneauModel extends Model
 
     public function findJoinAll() {
         return $this
-        ->select('panneau.IDPANNEAU, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, commune.IDCOMMUNE')
-        ->join('commune', 'commune.IDCOMMUNE = panneau.IDPANNEAU')
+        ->select('panneau.IDPANNEAU, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, panneau.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
+        ->join('commune', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
         ->findAll();
     }
 }

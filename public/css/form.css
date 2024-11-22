@@ -13,21 +13,22 @@ form {
     background: #e7e7e7;
     border-radius: 8px;
     font-size: 1.3em;
-} 
+}
+
 .form-suppr {
     padding: 5px 5px 5px 5px;
-	background-color: #ffffff;
+    background-color: #ffffff;
     font-size: 18px;
     text-align: center;
     font-style: normal;
-    border-radius: 15px; 
+    border-radius: 15px;
     width: 100%;
     border: 1px solid #080505;
     border-width: 1px 1px 3px;
     box-shadow: 0 -1px 0 rgba(250, 249, 249, 0.1) inset;
     margin-bottom: 10px;
 
-    
+
 }
 
 
@@ -60,9 +61,9 @@ select:focus {
 }
 
 input[type="submit"] {
-	background-color: #838383;
-	color: #fff;
-	font-size: 1.1em;
+    background-color: #838383;
+    color: #fff;
+    font-size: 1.1em;
 }
 
 input[type="radio"],
@@ -72,8 +73,8 @@ input[type="checkbox"] {
 
 button {
     padding: 19px 39px 18px 39px;
-	background-color: #838383;
-	color: #fff;
+    background-color: #838383;
+    color: #fff;
     font-size: 18px;
     text-align: center;
     font-style: normal;
@@ -112,4 +113,18 @@ label.light {
         max-width: 480px;
     }
 
+}
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }

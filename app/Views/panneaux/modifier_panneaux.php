@@ -5,7 +5,7 @@
 <form action= "<?= url_to("updatePanneau") ?>" method="post">
     <label for="name">Nom Panneau</label>
     <input type="text" id="name" name="REFERENCE" value="<?= $panneau['REFERENCE'] ?>" >
-
+    
     <label for="latitude">Latitude</label>
     <input type="text" id="latitude" name="LATITUDE" value="<?= $panneau['LATITUDE'] ?>" >
 
