@@ -21,7 +21,6 @@
         <div class="menu">
             <ul>
                 <li class="logo">
-<<<<<<< HEAD
                     <img class="img" src="/image/logo.png" />
                 </li>
                 <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Home</a></li>
