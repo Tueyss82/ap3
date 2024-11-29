@@ -17,10 +17,10 @@
             <li class="logo">
                 <img class="img" src="/image/logo.png" />
             </li>
-            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Home</a></li>
+            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Acceuil</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('connexion') ?>">Se Connecter</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('utilisateur') ?>">qdqdqdqd</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('clients') ?>">teste</a></li>
+            <li class="menu-item hidden"><a href="<?= url_to('utilisateur') ?>">Gestion utilisateurs</a></li>
+            <li class="menu-item hidden"><a href="<?= url_to('clients') ?>">Gestion clients</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('message') ?>">test msg</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('panneaux') ?>">Gestion Panneaux</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('contact') ?>">contact</a></li>
