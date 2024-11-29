@@ -261,3 +261,6 @@ footer .copyrights {
         color: rgba(255, 255, 255, .8);
     }
 }
+#map {
+    height: 180px;
+}
