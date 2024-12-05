@@ -106,7 +106,23 @@ header li.menu-item a:focus {
 
 header .logo {
     float: left;
+    height: 70px;
+    padding: .4rem .5rem;
+}
+
+header .img {
     height: 44px;
+}
+
+.groupe {
+    float: left;
+    height: 70px;
+    padding: .4rem .5rem;
+}
+
+.texte {
+   
+    height: 70px;
     padding: .4rem .5rem;
 }
 
@@ -212,7 +228,7 @@ section svg {
 }
 
 footer {
-    background-color: rgba(221, 72, 20, .8);
+    background-color: rgba(109, 104, 102, 0.8);
     text-align: center;
 }
 
