@@ -47,5 +47,10 @@ class CommuneModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    public function deleteCommune($IDCOMMUNE){
+        $this->where('commune.IDCOMMUNE ', $IDCOMMUNE)
+        ->delete();
+    }
+
     
 }

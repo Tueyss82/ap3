@@ -5,11 +5,10 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+service('auth')->routes($routes);
 $routes->get('/', 'Home::index', ['as' => 'index']);
 
 $routes->get('contact', 'Home::contact', ['as' => 'contact']);
-
-$routes->get('connexion', 'Home::connexion', ['as' => 'connexion']);
 
 $routes->get('communes/gestion_clients', 'Commune::clients', ['as' => 'clients']);
 

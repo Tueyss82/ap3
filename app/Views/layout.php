@@ -28,13 +28,7 @@
             <li class="menu-toggle">
                 <button id="menuToggle">&#9776;</button>
             </li>
-            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Home</a></li>
-            <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
-            </li>
-            <li class="menu-item hidden"><a href="https://forum.codeigniter.com/" target="_blank">Community</a></li>
-            <li class="menu-item hidden"><a
-                    href="https://codeigniter.com/contribute" target="_blank">Contribute</a>
-            </li>
+            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Retourner à l'accueil</a></li>
         </ul>
     </div>
     
@@ -44,8 +38,7 @@
 
     <div class="copyrights">
 
-        <p>&copy; <?= date('Y') ?> CodeIgniter Foundation. CodeIgniter is open source project released under the MIT
-            open source licence.</p>
+        <p>&copy; <?= date('Y') ?> PEROT - BASCK - KHANTOUCH - MAACHE</p>
 
     </div>
 
