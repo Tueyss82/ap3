@@ -6,15 +6,15 @@
 <form method="post" action="<?= url_to('updateMessage') ?>">
     <input type="hidden" name="IDMESSAGE" value="<?= $message['IDMESSAGE'] ?>" />
 
-    <label for="idcommune">Commune :</label>
+    <!-- <label for="idcommune">Commune :</label>
     <select name="IDCOMMUNE" id="idcommune">
         <option value="">--Choisir une commune--</option>
-        <?php foreach ($listeCommune as $commune) : ?>
-            <option value="<?= $commune['IDCOMMUNE'] ?>" <?= $message['IDCOMMUNE'] == $commune['IDCOMMUNE'] ? 'selected' : '' ?>>
-                <?= $commune['NOM'] ?>
+        php foreach ($listeCommune as $commune) : ?>
+            <option value="= $commune['IDCOMMUNE'] ?>" = $message['IDCOMMUNE'] == $commune['IDCOMMUNE'] ? 'selected' : '' ?>>
+                = $commune['NOM'] ?>
             </option>
-        <?php endforeach; ?>
-    </select>
+        php endforeach; ?>
+    </select> -->
 
     <label for="etat">État :</label>
     <input type="text" id="etat" name="ETAT" value="<?= $message['ETAT'] ?>" required />

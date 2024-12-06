@@ -52,6 +52,12 @@ class PanneauModel extends Model
     protected $afterDelete    = [];
 
 
+    public function findPanneaux()
+    {
+        return $this
+            ->select('panneau.IDPANNEAU, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE')
+            ->findAll();
+    }
 
     public function findJoinAll()
     {
