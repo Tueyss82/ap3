@@ -37,4 +37,9 @@ class MessageModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function deleteMessage($IDCOMMUNE){
+        $this->where('message.IDCOMMUNE', $IDCOMMUNE)
+        ->delete();
+    }
 }

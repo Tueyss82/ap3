@@ -8,16 +8,26 @@ class Commune extends BaseController
 {
 
     private $communeModel;
+    private $userModel;
+    private $panneauModel;
+    private $messageModel;
 
     public function __construct()
     {
         $this->communeModel = model('CommuneModel');
+        $this->userModel = model('UserModel');
+        $this->panneauModel = model('PanneauModel');
+        $this->messageModel = model('MessageModel');
     }
 
     //----------------------------------------------------------------------------------------------------------------------------------------//
 
-    public function clients(): string //get
+    public function clients() //get
     {
+        $user = auth()->user();
+        if (! $user->inGroup('admin')) {
+            return redirect('index');
+        }
         $communes = $this->communeModel->findAll();
 
         return view('communes/gestion_clients', [
@@ -25,8 +35,12 @@ class Commune extends BaseController
         ]);
     }
     //----------------------------------------------------------------------------------------------------------------------------------------//
-    public function ajout(): string //get
+    public function ajout() //get
     {
+        $user = auth()->user();
+        if (! $user->inGroup('admin')) {
+            return redirect('index');
+        }
         $communes = $this->communeModel->findAll();
         return view('communes/ajout_commune', [
             'listeCommune' => $communes
@@ -40,8 +54,12 @@ class Commune extends BaseController
         return redirect('clients');
     }
     //----------------------------------------------------------------------------------------------------------------------------------------//
-    public function modif($IDCOMMUNE): string //get
+    public function modif($IDCOMMUNE) //get
     {
+        $user = auth()->user();
+        if (! $user->inGroup('admin')) {
+            return redirect('index');
+        }
         $communes = $this->communeModel->find($IDCOMMUNE);
 
         return view('communes/modifier_commune', [
@@ -51,8 +69,8 @@ class Commune extends BaseController
     public function update() //post
     {
         $commune = $this->request->getPost();
-//         var_dump($commune);
-// die();  
+        //         var_dump($commune);
+        // die();  
         $this->communeModel->save($commune);
 
         return redirect('clients');
@@ -61,7 +79,21 @@ class Commune extends BaseController
     public function delete() //post
     {
         $IDCOMMUNE = $this->request->getPost('IDCOMMUNE');
-        $this->communeModel->delete($IDCOMMUNE);
+        $idUser = $this->userModel->getAllByIdCommune($IDCOMMUNE);
+
+        // var_dump($IDCOMMUNE);
+        // var_dump($idUser);
+        // die();
+
+        $this->userModel->deleteAuthIdentities($idUser[0]->id);
+        $this->userModel->deleteAuthPermissionsUsers($idUser[0]->id);
+        $this->userModel->deleteAuthGroupsUsers($idUser[0]->id);
+        $this->userModel->deleteAuthRememberTokens($idUser[0]->id);
+    
+        $this->userModel->deleteUsers($IDCOMMUNE);
+        $this->messageModel->deleteMessage($IDCOMMUNE);
+        $this->panneauModel->deletePanneau($IDCOMMUNE);
+        $this->communeModel->deleteCommune($IDCOMMUNE);
         return redirect('clients');
     }
 }

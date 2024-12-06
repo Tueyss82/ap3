@@ -57,4 +57,9 @@ class PanneauModel extends Model
         ->join('commune', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
         ->findAll();
     }
+
+    public function deletePanneau($IDCOMMUNE){
+        $this->where('panneau.IDCOMMUNE', $IDCOMMUNE)
+        ->delete();
+    }
 }

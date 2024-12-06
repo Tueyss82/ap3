@@ -17,13 +17,10 @@
             <li class="logo">
                 <img class="img" src="/image/logo.png" />
             </li>
-            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Home</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('connexion') ?>">Se Connecter</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('utilisateur') ?>">qdqdqdqd</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('clients') ?>">teste</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('message') ?>">test msg</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('panneaux') ?>">Gestion Panneaux</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('contact') ?>">contact</a></li>
+            <li class="menu-toggle">
+                <button id="menuToggle">&#9776;</button>
+            </li>
+            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Retourner à l'accueil</a></li>
         </ul>
     </div>
 </header>
@@ -48,9 +45,8 @@
         </div>
         <div class="copyrights">
 
-            <p>&copy; <?= date('Y') ?> L'agence design et digitale</p>
-
-            <p>Mentions légales/Données personnelles/Préférences cookies</p>
+        <p>&copy; <?= date('Y') ?> CodeIgniter Foundation. CodeIgniter is open source project released under the MIT
+            open source licence.</p>
 
         </div>
 </footer>
