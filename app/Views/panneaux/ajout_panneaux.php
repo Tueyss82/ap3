@@ -11,6 +11,8 @@
         <option value="">--Choisissez une commune--</option>
         <option value="">$commune['NOM']?> - $commune['DEPARTEMENT']?></option>
     </select> -->
+        
+        <p> Communes</p>
         <select id="IDCOMMUNE" name="IDCOMMUNE" value="">
             <?php
             foreach ($commune as $attribut) {

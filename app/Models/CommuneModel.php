@@ -52,5 +52,10 @@ class CommuneModel extends Model
         ->delete();
     }
 
-    
+    public function findCommune()
+    {
+        return $this
+            ->select('commune.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
+            ->findAll();
+    }
 }

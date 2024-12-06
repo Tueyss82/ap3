@@ -6,10 +6,13 @@ class Panneau extends BaseController
 {
 
     private $panneauxModel;
+    private $communeModel;
 
     public function __construct()
     {
         $this->panneauxModel = model('PanneauModel');
+        $this->communeModel = model('CommuneModel');
+
     }
 
     public function index(): string
@@ -27,7 +30,7 @@ class Panneau extends BaseController
     public function ajout(): string
     {
         
-        $communes = $this->panneauxModel->findJoinAll();
+        $communes = $this->communeModel->findCommune();
         return view('panneaux/ajout_panneaux', ['commune'=> $communes]);
     }
 
@@ -43,7 +46,7 @@ class Panneau extends BaseController
     public function modif($idPanneau): string
     {
         $panneauId = $this->panneauxModel->find($idPanneau);
-        $communes = $this->panneauxModel->findJoinAll();
+        $communes = $this->communeModel->findCommune();
         return view('panneaux/modifier_panneaux', [
             'panneau' => $panneauId,'commune'=> $communes
         ]);
