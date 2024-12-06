@@ -21,13 +21,9 @@
                 ?>
                 <?= $admin ? '<li class="menu-item hidden"><a href="'.url_to('utilisateur').'">Gestion Utilisateurs</a></li>' : '' ?>
                 <?= $admin ? '<li class="menu-item hidden"><a href="'.url_to('clients').'">Gestion Communes</a></li>' : '' ?>
-            <li class="menu-item hidden"><a href="<?= url_to('message') ?>">test msg</a></li>
+            <li class="menu-item hidden"><a href="<?= url_to('message') ?>">Gestion Messages</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('panneaux') ?>">Gestion Panneaux</a></li>
-            <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
-            </li>
-            <li class="menu-item hidden"><a href="https://forum.codeigniter.com/" target="_blank">Community</a></li>
-            <li class="menu-item hidden"><a
-                    href="https://codeigniter.com/contribute" target="_blank">Contribute</a>
+            <li class="menu-item hidden"><a href="<?= url_to('logout') ?>">Se Déconnecter</a></li>
             </li>
         </ul>
     </div>
