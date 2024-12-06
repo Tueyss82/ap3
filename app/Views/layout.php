@@ -20,7 +20,7 @@
             <li class="menu-toggle">
                 <button id="menuToggle">&#9776;</button>
             </li>
-            <li class="menu-item hidden"><a href="#">Accueil</a></li>
+            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Accueil</a></li>
             <?php
                     $user = auth()->user();
                     $admin = $user && $user->inGroup('admin');
@@ -30,7 +30,6 @@
             <li class="menu-item hidden"><a href="<?= url_to('message') ?>">Gestion Messages</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('panneaux') ?>">Gestion Panneaux</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('logout') ?>">Se Déconnecter</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Retourner à l'accueil</a></li>
         </ul>
     </div>
     
