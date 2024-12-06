@@ -35,6 +35,12 @@
     </div>
 </header>
 
+<script>
+    function submit_click(){
+        confirm("Vous vous apprêtez à supprimer une commune avec toutes les données reliées à cette commune, voulez vous continuer ?") || event.preventDefault();
+    }
+</script>
+
 <body>
     <?= $this->renderSection('contenu') ?>
 

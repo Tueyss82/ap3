@@ -15,7 +15,7 @@
             '<a class="button" href="' . url_to('modifCommune', $va['IDCOMMUNE']) . '">modifier</a>',
             '<form  method="post" action="' . url_to('supprCommune', $va['IDCOMMUNE']) . '">
                 <input type="hidden" name="IDCOMMUNE" value="' . $va['IDCOMMUNE'] . '">
-                <input class="form-suppr" type="submit" value="Supprimmer">
+                <input class="form-suppr" type="submit" value="Supprimmer" onclick=submit_click()>
             </form>',
         );
     }
