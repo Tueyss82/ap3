@@ -13,13 +13,13 @@ class PanneauModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'REFERENCE', 
+        'REFERENCE',
         'LATITUDE',
         'LONGITUDE',
         'IDCOMMUNE',
         'NOM',
         'DEPARTEMENT'
-];
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -51,15 +51,19 @@ class PanneauModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function findJoinAll() {
+
+
+    public function findJoinAll()
+    {
         return $this
-        ->select('panneau.IDPANNEAU, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, panneau.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
-        ->join('commune', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
-        ->findAll();
+            ->select('panneau.IDPANNEAU, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, commune.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
+            ->join('commune', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
+            ->findAll();
     }
 
-    public function deletePanneau($IDCOMMUNE){
+    public function deletePanneau($IDCOMMUNE)
+    {
         $this->where('panneau.IDCOMMUNE', $IDCOMMUNE)
-        ->delete();
+            ->delete();
     }
 }

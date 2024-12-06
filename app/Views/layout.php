@@ -5,7 +5,7 @@
 <!-- HEADER: MENU + HEROE SECTION -->
 <header>
     <meta charset="UTF-8">
-    <title>Gestion des étudiants</title>
+    <title>Publicom</title>
     <meta name="description" content="The small framework with powerful features">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/favicon.ico">
@@ -20,7 +20,7 @@
             <li class="menu-toggle">
                 <button id="menuToggle">&#9776;</button>
             </li>
-            <li class="menu-item hidden"><a href="#">Accueil</a></li>
+            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Accueil</a></li>
             <?php
                     $user = auth()->user();
                     $admin = $user && $user->inGroup('admin');
@@ -30,9 +30,9 @@
             <li class="menu-item hidden"><a href="<?= url_to('message') ?>">Gestion Messages</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('panneaux') ?>">Gestion Panneaux</a></li>
             <li class="menu-item hidden"><a href="<?= url_to('logout') ?>">Se Déconnecter</a></li>
-            <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Retourner à l'accueil</a></li>
         </ul>
     </div>
+    
 </header>
 
 <script>

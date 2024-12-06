@@ -6,7 +6,7 @@
     <?php
     $table = new \CodeIgniter\View\Table();
 
-    $table->setHeading(['Nom', 'Departement', 'Modifier', 'Supprimer']);
+    $table->setHeading(['Nom', 'Departement', 'Modifier', 'Supprimer','Gestion panneaux']);
     foreach ($listeCommune as $commune => $va) {
 
         $table->addRow(
@@ -17,6 +17,8 @@
                 <input type="hidden" name="IDCOMMUNE" value="' . $va['IDCOMMUNE'] . '">
                 <input class="form-suppr" type="submit" value="Supprimmer" onclick=submit_click()>
             </form>',
+            
+            '<a class="button" href="' . url_to('panneaux') . '">Panneaux</a>',
         );
     }
 
