@@ -17,6 +17,8 @@
                 <input type="hidden" name="IDCOMMUNE" value="' . $va['IDCOMMUNE'] . '">
                 <input class="form-suppr" type="submit" value="Supprimmer">
             </form>',
+            
+
         );
     }
 
