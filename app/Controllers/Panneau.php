@@ -27,6 +27,7 @@ class Panneau extends BaseController
         ]);
     }
 
+
     public function ajout(): string
     {
         

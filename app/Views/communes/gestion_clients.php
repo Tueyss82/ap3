@@ -6,7 +6,7 @@
     <?php
     $table = new \CodeIgniter\View\Table();
 
-    $table->setHeading(['Nom', 'Departement', 'Modifier', 'Supprimer']);
+    $table->setHeading(['Nom', 'Departement', 'Modifier', 'Supprimer','Gestion panneaux']);
     foreach ($listeCommune as $commune => $va) {
 
         $table->addRow(
@@ -14,11 +14,11 @@
             $va['DEPARTEMENT'],
             '<a class="button" href="' . url_to('modifCommune', $va['IDCOMMUNE']) . '">modifier</a>',
             '<form  method="post" action="' . url_to('supprCommune', $va['IDCOMMUNE']) . '">
-                <input type="hidden" name="IDCOMMUNE" value="' . $va['IDCOMMUNE'] . '">
-                <input class="form-suppr" type="submit" value="Supprimmer">
+                <input type="hidden" name="IDCOMMUNE" value="' . url_to('supprCommune', $va['IDCOMMUNE']) .'">
+                <input class="button" type="submit" value="Supprimmer">
             </form>',
             
-
+            '<a class="button" href="' . url_to('panneaux') . '">Panneaux</a>',
         );
     }
 
