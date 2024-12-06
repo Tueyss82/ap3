@@ -23,6 +23,7 @@
             <li class="menu-item hidden"><a href="<?= url_to('index') ?>">Retourner à l'accueil</a></li>
         </ul>
     </div>
+    
 </header>
 
 <body>
