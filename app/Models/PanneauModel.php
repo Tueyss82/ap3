@@ -67,6 +67,15 @@ class PanneauModel extends Model
             ->findAll();
     }
 
+    public function getAllPanneauByCommune($IDCOMMUNE)
+    {
+        return $this
+            ->select('panneau.IDPANNEAU, panneau.REFERENCE, panneau.LATITUDE, panneau.LONGITUDE, commune.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
+            ->join('commune', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
+            ->where('panneau.IDCOMMUNE = ', $IDCOMMUNE)
+            ->find();
+    }
+    
     public function deletePanneau($IDCOMMUNE)
     {
         $this->where('panneau.IDCOMMUNE', $IDCOMMUNE)

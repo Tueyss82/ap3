@@ -10,34 +10,45 @@
                     <option value=""></option>
         
     </select>  -->
+    <?php
 
-<!-- <label for="IDPANNEAU">Panneau</label>
-<select id="IDPANNEAU" name="IDPANNEAU" value="">
-    
-    foreach ($panneaux as $panneau) {
-        echo "<option value=" . $panneau['IDPANNEAU'] . ">" . $panneau['REFERENCE'] . "</option>";
+    $user = auth()->user();
+    if (! $user->inGroup('admin')) {
+    ?>
+        <label for="IDCOMMUNE">Commune</label>
+        <input type="text" id="IDCOMMUNE" name="IDCOMMUNE" value=" <?= $communeId . ' - ' . $nomCommune . ' (' . $deptNum . ')' ?> " readonly />
+    <?php
     }
-    
-</select> -->
+    else {
+    ?>
+    <label for="IDCOMMUNE">Panneau</label>
+    <select name="IDCOMMUNE">
+        <option value="">Choisissez un département</option>
+        <?php
+        foreach ($listeCommunes as $commune) {
+            echo "<option value=" . $commune['IDCOMMUNE'] . ">" . $commune['NOM'] . " (" . $commune['DEPARTEMENT'] . ")</option>";
+        }
+    }
+        ?>
+    </select>
 
+    <label for="ETAT">État</label>
+    <select name="ETAT" id="ETAT">
+        <option value="">--Choisir un état--</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
 
-<label for="ETAT">État</label>
-<select name="ETAT" id="ETAT">
-    <option value="">--Choisir un état--</option>
-    <option value="0">0</option>
-    <option value="1">1</option>
-</select>
+    <label for="texte">Texte :</label>
+    <input type="text" id="TEXTE" name="TEXTE" required />
 
-<label for="texte">Texte :</label>
-<input type="text" id="TEXTE" name="TEXTE" required />
+    <label for="couleur">Couleur</label>
+    <input type="color" id="COULEUR" name="COULEUR" value="#ff0000">
 
-<label for="couleur">Couleur</label>
-<input type="color" id="COULEUR" name="COULEUR" value="#ff0000">
-
-<!-- <label for="taille">Taille :</label>
+    <!-- <label for="taille">Taille :</label>
     <input type="text" id="taille" name="TAILLE" required /> -->
 
-<input type="submit" value="Valider" />
+    <input type="submit" value="Valider" />
 </form>
 
 <?= $this->endSection() ?>

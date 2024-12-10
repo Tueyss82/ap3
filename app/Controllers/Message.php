@@ -19,23 +19,63 @@ class Message extends BaseController
     // Afficher tous les messages
     public function index(): string
     {
+        $user = auth()->user();
+        if (!$user->inGroup('admin')) {
+            $userId = $user->IDCOMMUNE;
+            // dd($userId);
+            $listeMessages = $this->messageModel->getAllMessageByCommune($userId);
+            // var_dump($user);
+            // var_dump($listeMessages);
+            // die();
+            return view('messages/gestion_message', [
+                'messages' => $listeMessages
+            ]);
+        }
+
+        $messages = $this->messageModel->findJoinAll();
+
         return view('messages/gestion_message', [
-            'messages' => $this->messageModel->findAll()
+            'messages' => $messages
         ]);
     }
 
     // Afficher le formulaire pour ajouter un message
     public function ajout(): string
     {
-        return view('messages/ajout_message', [
-            'listeCommune' => $this->communeModel->findAll()
-        ]);
+        $user = auth()->user();
+        if (!$user->inGroup('admin')) {
+            $userId = $user->IDCOMMUNE;
+            // dd($userId);
+            $communeData = $this->communeModel->findCommuneNomAndDepart($userId);
+            // dd($communeData);
+            $communeNom = $communeData[0]['NOM'];
+            // dd($communeNom);
+            $deptNum = $communeData[0]['DEPARTEMENT'];
+            // dd($deptNum);
+
+
+            return view('messages/ajout_message', [
+                'communeId' => $userId,
+                'nomCommune' => $communeNom,
+                'deptNum' => $deptNum
+            ]);
+        } else {
+
+            $communes = $this->communeModel->findAll();
+            // dd($communes);
+
+            return view('messages/ajout_message', [
+                'listeCommunes' => $communes
+            ]);
+        }
     }
 
     // Créer un nouveau message
     public function create()
     {
-        $this->messageModel->save($this->request->getPost());
+        $message = $this->request->getPost();
+        // dd($message);
+        $this->messageModel->insert($message);
         return redirect('message');
     }
 

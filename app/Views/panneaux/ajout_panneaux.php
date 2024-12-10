@@ -11,14 +11,25 @@
         <option value="">--Choisissez une commune--</option>
         <option value="">$commune['NOM']?> - $commune['DEPARTEMENT']?></option>
     </select> -->
-        
-        <label for="IDCOMMUNE">Commune</label>
-        <select id="IDCOMMUNE" name="IDCOMMUNE" value="">
-            <?php
-            foreach ($commune as $attribut) {
-                echo "<option value=" . $attribut['IDCOMMUNE'] . ">" . $attribut['NOM'] . " (" . $attribut['DEPARTEMENT'] . ")</option>";
+        <?php
+            $user = auth()->user();
+            if (! $user->inGroup('admin')) {
+        ?>
+                <label for="IDCOMMUNE">Commune</label>
+                <input type="text" id="IDCOMMUNE" name="IDCOMMUNE" value=" <?= $communeId . ' - ' . $nomCommune . ' (' . $deptNum . ')' ?> " readonly />
+        <?php
             }
-            ?>
+            else {
+        ?>
+                <label for="IDCOMMUNE">Panneau</label>
+                <select name="IDCOMMUNE">
+                    <option value="">Choisissez un département</option>
+                    <?php
+                        foreach ($commune as $attribut) {
+                            echo "<option value=" . $attribut['IDCOMMUNE'] . ">" . $attribut['NOM'] . " (" . $attribut['DEPARTEMENT'] . ")</option>";
+                        }
+            }
+        ?>
         </select>
         <label for="latitude">Latitude</label>
         <input type="text" id="latitude" name="LATITUDE" value="">

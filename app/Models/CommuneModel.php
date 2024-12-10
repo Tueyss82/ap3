@@ -58,4 +58,12 @@ class CommuneModel extends Model
             ->select('commune.IDCOMMUNE, commune.NOM, commune.DEPARTEMENT')
             ->findAll();
     }
+
+    public function findCommuneNomAndDepart($IDCOMMUNE)
+    {
+        return $this
+            ->select('commune.NOM, commune.DEPARTEMENT')
+            ->where('commune.IDCOMMUNE = ', $IDCOMMUNE)
+            ->findAll();
+    }
 }

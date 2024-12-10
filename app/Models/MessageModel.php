@@ -6,27 +6,28 @@ use CodeIgniter\Model;
 
 class MessageModel extends Model
 {
-    protected $table            = 'message'; 
-    protected $primaryKey       = 'IDMESSAGE'; 
-    protected $useAutoIncrement = true; 
-    protected $returnType       = 'array'; 
-    protected $useSoftDeletes   = false; 
-    protected $protectFields    = true;     protected $allowedFields    = ['IDCOMMUNE', 'ETAT', 'TEXTE', 'COULEUR', 'TAILLE']; 
+    protected $table            = 'message';
+    protected $primaryKey       = 'IDMESSAGE';
+    protected $useAutoIncrement = true;
+    protected $returnType       = 'array';
+    protected $useSoftDeletes   = false;
+    protected $protectFields    = true;
+    protected $allowedFields    = ['IDCOMMUNE', 'ETAT', 'TEXTE', 'COULEUR', 'TAILLE'];
 
-    protected bool $allowEmptyInserts = false; 
-    protected bool $updateOnlyChanged = true; 
+    protected bool $allowEmptyInserts = false;
+    protected bool $updateOnlyChanged = true;
 
- 
+
     // Dates
-    protected $useTimestamps = false; 
-    protected $dateFormat    = 'datetime'; 
-    protected $createdField  = 'created_at'; 
-    protected $updatedField  = 'updated_at'; 
-    protected $deletedField  = 'deleted_at'; 
+    protected $useTimestamps = false;
+    protected $dateFormat    = 'datetime';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
 
-    protected $skipValidation       = false; 
-    protected $cleanValidationRules = true;  
+    protected $skipValidation       = false;
+    protected $cleanValidationRules = true;
 
     protected $allowCallbacks = true;
     protected $beforeInsert   = [];
@@ -39,17 +40,29 @@ class MessageModel extends Model
     protected $afterDelete    = [];
 
 
-    public function findJoinAll(){
+    public function findJoinAll()
+    {
         return $this
-        ->select('message.IDMESSAGE, message.IDCOMMUNE, message.ETAT, message.TEXTE, message.COULEUR, message.TAILLE, 
+            ->select('message.IDMESSAGE, message.IDCOMMUNE, message.ETAT, message.TEXTE, message.COULEUR, message.TAILLE, 
         panneau.IDPANNEAU, panneau.REFERENCE')
-        ->join('commune', 'commune.IDCOMMUNE = message.IDCOMMUNE')
-        ->join('panneau', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
-        ->findAll();
+            ->join('commune', 'commune.IDCOMMUNE = message.IDCOMMUNE')
+            ->join('panneau', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
+            ->findAll();
     }
 
-    public function deleteMessage($IDCOMMUNE){
+    public function getAllMessageByCommune($IDCOMMUNE)
+    {
+        return $this->select('message.IDMESSAGE, message.IDCOMMUNE, message.ETAT, message.TEXTE, message.COULEUR, message.TAILLE, 
+        panneau.IDPANNEAU, panneau.REFERENCE')
+            ->join('commune', 'commune.IDCOMMUNE = message.IDCOMMUNE')
+            ->join('panneau', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
+            ->where('message.IDCOMMUNE = ', $IDCOMMUNE)
+            ->findAll();
+    }
+
+    public function deleteMessage($IDCOMMUNE)
+    {
         $this->where('message.IDCOMMUNE', $IDCOMMUNE)
-        ->delete();
+            ->delete();
     }
 }
