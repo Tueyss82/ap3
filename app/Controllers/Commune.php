@@ -85,15 +85,18 @@ class Commune extends BaseController
         // var_dump($idUser);
         // die();
 
-        $this->userModel->deleteAuthIdentities($idUser[0]->id);
-        $this->userModel->deleteAuthPermissionsUsers($idUser[0]->id);
-        $this->userModel->deleteAuthGroupsUsers($idUser[0]->id);
-        $this->userModel->deleteAuthRememberTokens($idUser[0]->id);
-    
+        if (!empty($idUser)) {
+            $this->userModel->deleteAuthIdentities($idUser[0]->id);
+            $this->userModel->deleteAuthPermissionsUsers($idUser[0]->id);
+            $this->userModel->deleteAuthGroupsUsers($idUser[0]->id);
+            $this->userModel->deleteAuthRememberTokens($idUser[0]->id);
+        }
+
         $this->userModel->deleteUsers($IDCOMMUNE);
         $this->messageModel->deleteMessage($IDCOMMUNE);
         $this->panneauModel->deletePanneau($IDCOMMUNE);
         $this->communeModel->deleteCommune($IDCOMMUNE);
+        
         return redirect('clients');
     }
 }
