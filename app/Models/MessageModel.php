@@ -38,6 +38,16 @@ class MessageModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+
+    public function findJoinAll(){
+        return $this
+        ->select('message.IDMESSAGE, message.IDCOMMUNE, message.ETAT, message.TEXTE, message.COULEUR, message.TAILLE, 
+        panneau.IDPANNEAU, panneau.REFERENCE')
+        ->join('commune', 'commune.IDCOMMUNE = message.IDCOMMUNE')
+        ->join('panneau', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
+        ->findAll();
+    }
+
     public function deleteMessage($IDCOMMUNE){
         $this->where('message.IDCOMMUNE', $IDCOMMUNE)
         ->delete();

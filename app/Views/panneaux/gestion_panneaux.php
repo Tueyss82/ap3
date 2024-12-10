@@ -12,7 +12,7 @@
 
 <?php
 $table = new \CodeIgniter\View\Table();
-$table->setHeading('Panneaux', 'Latitude', 'Longitude', 'Département', 'Modifier', 'Supprimer');
+$table->setHeading('Panneaux', 'Latitude', 'Longitude', 'Département','Message', 'Modifier', 'Supprimer');
 
 foreach ($listePanneaux as $colonne => $c) {
 
@@ -21,6 +21,7 @@ foreach ($listePanneaux as $colonne => $c) {
         $c['LATITUDE'],
         $c['LONGITUDE'],
         $c['NOM'],
+        '<a class="button" href="' . url_to('message') . '">Message</a>',
         '<a class="bouton" href="' . url_to('modifPanneau', $c['IDPANNEAU']) . '">Modifier</a>',
         '<form  method="post" action="' . url_to('supprPanneau', $c['IDPANNEAU']) . '">
                 <input type="hidden" name="IDPANNEAU" value="' . $c['IDPANNEAU'] . '">
