@@ -53,7 +53,7 @@ class MessageModel extends Model
     public function getAllMessageByCommune($IDCOMMUNE)
     {
         return $this->select('message.IDMESSAGE, message.IDCOMMUNE, message.ETAT, message.TEXTE, message.COULEUR, message.TAILLE, 
-        panneau.IDPANNEAU, panneau.REFERENCE')
+        panneau.IDPANNEAU')
             ->join('commune', 'commune.IDCOMMUNE = message.IDCOMMUNE')
             ->join('panneau', 'commune.IDCOMMUNE = panneau.IDCOMMUNE')
             ->where('message.IDCOMMUNE = ', $IDCOMMUNE)

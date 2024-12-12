@@ -14,7 +14,10 @@ $table = new Table();
 
 <?php
 
-$table->setHeading('État', 'Texte', 'Caractéristiques', 'Modifier','Supprimer');
+$table->setHeading('État', 'Texte', 'Caractéristiques', 'Modifier', 'Supprimer');
+
+// var_dump($messages);
+// die();
 
 foreach ($messages as $message) {
     $table->addRow(

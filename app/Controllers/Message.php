@@ -32,7 +32,10 @@ class Message extends BaseController
             ]);
         }
 
-        $messages = $this->messageModel->findJoinAll();
+        $messages = $this->messageModel->findAll();
+
+        // var_dump($messages);
+        // die();
 
         return view('messages/gestion_message', [
             'messages' => $messages
