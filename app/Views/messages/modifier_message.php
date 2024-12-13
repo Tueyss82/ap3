@@ -22,8 +22,8 @@
     <label for="texte">Texte :</label>
     <input type="text" id="texte" name="TEXTE" value="<?= $message['TEXTE'] ?>" required />
 
-    <label for="couleur">Couleur :</label>
-    <input type="text" id="couleur" name="COULEUR" value="<?= $message['COULEUR'] ?>" required />
+    <label for="couleur">Couleur</label>
+    <input type="color" id="COULEUR" name="COULEUR" value="<?= $message['COULEUR'] ?>" required />
 
    <!-- <label for="taille">Taille :</label>
     <input type="text" id="taille" name="TAILLE" value="<?= $message['TAILLE'] ?>" required /> -->
