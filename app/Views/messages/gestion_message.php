@@ -33,11 +33,8 @@ foreach ($messages as $message) {
             <input type="hidden" name="IDMESSAGE" value="' . $message['IDMESSAGE'] . '">
             <input type="submit" value="Supprimer">
         </form>' 
-        // if($message['DATE_DESACTIVATION'] == getDate()){
-        //     $filtreDate = $message['DATE_DESACTIVATION'];
-        // } ,
-        
-        // $filtreDate
+        , 
+        $message['DATE_DESACTIVATION']
     );
 }
 
