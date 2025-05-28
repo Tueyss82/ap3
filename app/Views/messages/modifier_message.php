@@ -28,7 +28,7 @@
    <!-- <label for="taille">Taille :</label>
     <input type="text" id="taille" name="TAILLE" value="<?= $message['TAILLE'] ?>" required /> -->
 
-    <label for="Date de désactivation">Couleur</label>
+    <label for="DATE_DESACTIVATION">Date de désactivation</label>
     <input type="DATE_DESACTIVATION" id="DATE_DESACTIVATION" name="DATE_DESACTIVATION">
 
     <input type="submit" value="Mettre à jour" />
