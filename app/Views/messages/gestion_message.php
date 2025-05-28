@@ -11,10 +11,13 @@ $table = new Table();
 ?>
 
 <a class="button" href="<?= url_to('ajoutMessage') ?>">Ajouter un message</a>
+<a class="button" >Expirés</a>
+<a class="button" >En cours </a>
+<a class="button" >Sans date de désactivation</a>
 
 <?php
 
-$table->setHeading('État', 'Texte', 'Caractéristiques', 'Modifier', 'Supprimer');
+$table->setHeading('État', 'Texte', 'Caractéristiques', 'Modifier', 'Supprimer', 'Date De Désactivation');
 
 // var_dump($messages);
 // die();
@@ -29,7 +32,12 @@ foreach ($messages as $message) {
         '<form method="post" class="form" action="' . url_to('supprMessage', $message['IDMESSAGE']) . '">
             <input type="hidden" name="IDMESSAGE" value="' . $message['IDMESSAGE'] . '">
             <input type="submit" value="Supprimer">
-        </form>'
+        </form>' 
+        // if($message['DATE_DESACTIVATION'] == getDate()){
+        //     $filtreDate = $message['DATE_DESACTIVATION'];
+        // } ,
+        
+        // $filtreDate
     );
 }
 

@@ -48,6 +48,9 @@
     <!-- <label for="taille">Taille :</label>
     <input type="text" id="taille" name="TAILLE" required /> -->
 
+    <label for="couleur">Couleur</label>
+    <input type="DATE_DESACTIVATION" id="DATE_DESACTIVATION" name="DATE_DESACTIVATION">
+
     <input type="submit" value="Valider" />
 </form>
 
