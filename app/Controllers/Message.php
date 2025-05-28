@@ -22,20 +22,14 @@ class Message extends BaseController
         $user = auth()->user();
         if (!$user->inGroup('admin')) {
             $userId = $user->IDCOMMUNE;
-            // dd($userId);
+
             $listeMessages = $this->messageModel->getAllMessageByCommune($userId);
-            // var_dump($user);
-            // var_dump($listeMessages);
-            // die();
             return view('messages/gestion_message', [
                 'messages' => $listeMessages
             ]);
         }
-
+        
         $messages = $this->messageModel->findAll();
-
-        // var_dump($messages);
-        // die();
 
         return view('messages/gestion_message', [
             'messages' => $messages
